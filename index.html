@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ComptaFlow Pro - Plugin WordPress pour simplifier votre comptabilité. Conforme, simple et puissant.">
+    <title>ComptaFlow Pro - Comptabilité WordPress Simplifiée</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #ffffff;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 30px;
+            background: #f7fafc;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        
+        .benefit-card p {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        /* Screenshots Section */
+        .screenshots {
+            background: #f7fafc;
+            padding: 80px 20px;
+        }
+        
+        .screenshots h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #2d3748;
+        }
+        
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .screenshot-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .screenshot-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .screenshot-item h3 {
+            padding: 20px;
+            font-size: 18px;
+            color: #2d3748;
+            text-align: center;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #2d3748;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-item {
+            padding: 20px;
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+        
+        .feature-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .screenshot-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">ComptaFlow Pro</div>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="mon-compte.html">Mon compte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Simplifiez votre comptabilité WordPress</h1>
+        <p>Le plugin comptable intelligent pour indépendants, freelances et petites entreprises</p>
+        <a href="tarifs.html" class="cta-button">Voir les tarifs →</a>
+    </section>
+
+    <!-- Benefits Section -->
+    <div class="container">
+        <div class="benefits">
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <h3>Simple et rapide</h3>
+                <p>Saisissez vos recettes et dépenses en quelques clics. Interface intuitive pensée pour les non-comptables.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">✅</div>
+                <h3>100% conforme</h3>
+                <p>FEC conforme DGFiP, plan comptable général, conservation 10 ans. Respect des normes françaises.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🚀</div>
+                <h3>Gain de temps</h3>
+                <p>Import CSV, OCR intelligent, génération automatique des déclarations TVA et liasse fiscale.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots">
+        <h2>Une interface moderne et intuitive</h2>
+        <div class="screenshot-grid">
+            <div class="screenshot-item">
+                <img src="images/1-dashboard-overview.PNG" alt="Dashboard ComptaFlow Pro">
+                <h3>📊 Tableau de bord intelligent</h3>
+            </div>
+            
+            <div class="screenshot-item">
+                <img src="images/2-sales-list.PNG" alt="Liste des recettes">
+                <h3>💰 Gestion des recettes</h3>
+            </div>
+            
+            <div class="screenshot-item">
+                <img src="images/4-expenses-list.PNG" alt="Liste des dépenses">
+                <h3>💸 Suivi des dépenses</h3>
+            </div>
+            
+            <div class="screenshot-item">
+                <img src="images/6-declaration-tva-ca3.PNG" alt="Déclaration TVA CA3">
+                <h3>📋 Déclaration TVA CA3</h3>
+            </div>
+            
+            <div class="screenshot-item">
+                <img src="images/8-rapprochement-bancaire.PNG" alt="Rapprochement bancaire">
+                <h3>🏦 Rapprochement bancaire</h3>
+            </div>
+            
+            <div class="screenshot-item">
+                <img src="images/9-liasse-fiscale-2031.PNG" alt="Liasse fiscale 2031">
+                <h3>📑 Liasse fiscale 2031</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Fonctionnalités principales</h2>
+        <div class="feature-list">
+            <div class="feature-item">
+                <h4>📥 Recettes & Ventes</h4>
+                <p>Saisie rapide, import CSV, multi-tiers</p>
+            </div>
+            
+            <div class="feature-item">
+                <h4>💸 Dépenses & Achats</h4>
+                <p>Upload justificatifs, OCR automatique</p>
+            </div>
+            
+            <div class="feature-item">
+                <h4>🏦 Rapprochement bancaire</h4>
+                <p>Pointage automatique des écritures</p>
+            </div>
+            
+            <div class="feature-item">
+                <h4>📊 Gestion TVA</h4>
+                <p>CA3, CA12, acomptes automatiques</p>
+            </div>
+            
+            <div class="feature-item">
+                <h4>🚗 Immobilisations</h4>
+                <p>Calcul amortissements, véhicules</p>
+            </div>
+            
+            <div class="feature-item">
+                <h4>📑 Liasse Fiscale 2031</h4>
+                <p>Génération automatique conforme</p>
+            </div>
+            
+            <div class="feature-item">
+                <h4>📤 Exports FEC</h4>
+                <p>Fichier des Écritures Comptables DGFiP</p>
+            </div>
+            
+            <div class="feature-item">
+                <h4>👥 Collaboration</h4>
+                <p>Partage avec votre expert-comptable</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Prêt à simplifier votre comptabilité ?</h2>
+        <p>Rejoignez des centaines d'entrepreneurs qui gagnent du temps chaque jour</p>
+        <a href="tarifs.html" class="cta-button">Découvrir les tarifs →</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ComptaFlow Pro - Tous droits réservés</p>
+        <p>
+            <a href="mailto:contact@comptaflow.com">Contact</a> | 
+            <a href="#">Mentions légales</a> | 
+            <a href="#">CGV</a>
+        </p>
+    </footer>
+</body>
+</html>
