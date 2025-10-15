@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tarifs ComptaFlow Pro - Choisissez le plan adapté à vos besoins. À partir de 9,90€/mois.">
+    <title>Tarifs - ComptaFlow Pro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #ffffff;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px 60px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .pricing-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+        
+        .pricing-card.popular {
+            border-color: #667eea;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .plan-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        
+        .plan-price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #667eea;
+            margin: 20px 0;
+        }
+        
+        .plan-price span {
+            font-size: 18px;
+            color: #718096;
+        }
+        
+        .plan-description {
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f7fafc;
+            color: #4a5568;
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .features-list li::before {
+            content: "✓ ";
+            color: #48bb78;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .features-list li.disabled {
+            color: #cbd5e0;
+        }
+        
+        .features-list li.disabled::before {
+            content: "✗ ";
+            color: #cbd5e0;
+        }
+        
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .cta-button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .cta-button:active {
+            transform: translateY(0);
+        }
+        
+        .cta-button:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Savings Badge */
+        .savings {
+            background: #48bb78;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: #f7fafc;
+            padding: 60px 20px;
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #2d3748;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .faq-answer {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        /* Guarantee Section */
+        .guarantee {
+            background: #edf2f7;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .guarantee h3 {
+            font-size: 24px;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        
+        .guarantee p {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Loading */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .loading.active {
+            display: flex;
+        }
+        
+        .loading-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">ComptaFlow Pro</a>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="mon-compte.html">Mon compte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Choisissez votre plan</h1>
+        <p>Tous les plans incluent 30 jours satisfait ou remboursé</p>
+    </section>
+
+    <!-- Pricing Section -->
+    <div class="container">
+        <div class="pricing-grid">
+            <!-- Plan STANDARD -->
+            <div class="pricing-card">
+                <div class="plan-name">🥉 STANDARD</div>
+                <div class="plan-price">9,90€<span>/mois</span></div>
+                <div class="plan-description">Pour débuter en toute simplicité</div>
+                <ul class="features-list">
+                    <li>200 transactions/mois</li>
+                    <li>Recettes & Dépenses</li>
+                    <li>Journal comptable</li>
+                    <li>Exports FEC/Balance</li>
+                    <li>Rapprochement bancaire</li>
+                    <li class="disabled">Gestion TVA automatique</li>
+                    <li class="disabled">Immobilisations</li>
+                    <li class="disabled">Liasse fiscale 2031</li>
+                </ul>
+                <button class="cta-button" onclick="choosePlan('STANDARD')">
+                    Choisir STANDARD
+                </button>
+            </div>
+
+            <!-- Plan PLUS -->
+            <div class="pricing-card">
+                <div class="plan-name">🥈 PLUS</div>
+                <div class="plan-price">19,90€<span>/mois</span></div>
+                <div class="plan-description">Pour professionnels exigeants</div>
+                <ul class="features-list">
+                    <li>Transactions illimitées</li>
+                    <li>Tout STANDARD +</li>
+                    <li>Gestion TVA (CA3/CA12)</li>
+                    <li>Alertes intelligentes</li>
+                    <li>Paie simplifiée</li>
+                    <li>Immobilisations</li>
+                    <li class="disabled">Liasse fiscale 2031</li>
+                    <li class="disabled">Multi-entreprises</li>
+                </ul>
+                <button class="cta-button" onclick="choosePlan('PLUS')">
+                    Choisir PLUS
+                </button>
+            </div>
+
+            <!-- Plan VIP Mensuel -->
+            <div class="pricing-card popular">
+                <div class="popular-badge">⭐ POPULAIRE</div>
+                <div class="plan-name">👑 VIP Mensuel</div>
+                <div class="plan-price">29,90€<span>/mois</span></div>
+                <div class="plan-description">Toute la puissance de ComptaFlow</div>
+                <ul class="features-list">
+                    <li>Toutes les fonctionnalités</li>
+                    <li>Liasse fiscale 2031</li>
+                    <li>Multi-entreprises (3 sites)</li>
+                    <li>Sauvegardes automatiques</li>
+                    <li>Support prioritaire</li>
+                    <li>Mises à jour anticipées</li>
+                    <li>Formation personnalisée</li>
+                    <li>API entreprise</li>
+                </ul>
+                <button class="cta-button" onclick="choosePlan('VIP_MONTHLY')">
+                    Choisir VIP Mensuel
+                </button>
+            </div>
+
+            <!-- Plan VIP Annuel -->
+            <div class="pricing-card">
+                <div class="savings">📉 ÉCONOMISEZ 20%</div>
+                <div class="plan-name">👑 VIP Annuel</div>
+                <div class="plan-price">287€<span>/an</span></div>
+                <div class="plan-description">23,92€/mois - Payé annuellement</div>
+                <ul class="features-list">
+                    <li>Toutes les fonctionnalités VIP</li>
+                    <li>Économie de 71,80€/an</li>
+                    <li>Facturation annuelle</li>
+                    <li>Support prioritaire</li>
+                    <li>Formation incluse</li>
+                    <li>Mises à jour gratuites</li>
+                    <li>Garantie 30 jours</li>
+                    <li>Sans engagement</li>
+                </ul>
+                <button class="cta-button" onclick="choosePlan('VIP_YEARLY')">
+                    Choisir VIP Annuel
+                </button>
+            </div>
+        </div>
+
+        <!-- Guarantee -->
+        <div class="guarantee">
+            <h3>🛡️ Garantie satisfait ou remboursé 30 jours</h3>
+            <p>Essayez ComptaFlow Pro sans risque. Si vous n'êtes pas satisfait, nous vous remboursons intégralement dans les 30 jours suivant votre achat. Aucune question posée.</p>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2>Questions fréquentes</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">Puis-je changer de plan à tout moment ?</div>
+                <div class="faq-answer">Oui ! Vous pouvez passer à un plan supérieur ou inférieur à tout moment depuis votre espace client. Les changements sont effectifs immédiatement.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Comment fonctionne la garantie 30 jours ?</div>
+                <div class="faq-answer">Si vous n'êtes pas satisfait dans les 30 jours, contactez-nous et nous vous remboursons intégralement, sans condition.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Puis-je annuler mon abonnement ?</div>
+                <div class="faq-answer">Oui, vous pouvez annuler à tout moment sans frais. Vous conservez l'accès jusqu'à la fin de votre période payée.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Les prix sont-ils TTC ?</div>
+                <div class="faq-answer">Oui, tous les prix affichés sont TTC (TVA 20% incluse). Aucun frais caché.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Quelle est la différence entre VIP Mensuel et Annuel ?</div>
+                <div class="faq-answer">Les fonctionnalités sont identiques. Le plan annuel vous fait économiser 20% (71,80€) sur l'année en payant en une seule fois.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ComptaFlow Pro - Tous droits réservés</p>
+        <p>
+            <a href="mailto:contact@meetempo.com">Contact</a> | 
+            <a href="#">Mentions légales</a> | 
+            <a href="#">CGV</a>
+        </p>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading" id="loading">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Redirection vers le paiement sécurisé...</p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Configuration des Price IDs Stripe (MODE TEST)
+        const PRICE_IDS = {
+            STANDARD: 'price_1SIEQ4G34LMwHM1pNpyA9YTa',
+            PLUS: 'price_1SIETXG34LMwHM1pM8fyRF7g',
+            VIP_MONTHLY: 'price_1SIEVtG34LMwHM1pYMvZlzy1',
+            VIP_YEARLY: 'price_1SIEXXG34LMwHM1pumDWx2kG'
+        };
+
+        async function choosePlan(plan) {
+            const priceId = PRICE_IDS[plan];
+            
+            if (!priceId) {
+                alert('Plan non disponible');
+                return;
+            }
+
+            // Afficher le loading
+            document.getElementById('loading').classList.add('active');
+
+            try {
+                // Appeler l'API Worker pour créer la session Stripe
+                const response = await fetch('https://api-comptaflow.meetempo.com/create-checkout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        price_id: priceId,
+                        success_url: 'https://comptaflow.meetempo.com/merci.html?session_id={CHECKOUT_SESSION_ID}',
+                        cancel_url: 'https://comptaflow.meetempo.com/annulation.html'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success && data.url) {
+                    // Rediriger vers Stripe Checkout
+                    window.location.href = data.url;
+                } else {
+                    throw new Error(data.error || 'Erreur lors de la création de la session');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                document.getElementById('loading').classList.remove('active');
+                alert('Une erreur est survenue. Veuillez réessayer ou contactez le support.');
+            }
+        }
+    </script>
+</body>
+</html>
