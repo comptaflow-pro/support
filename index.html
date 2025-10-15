@@ -168,6 +168,7 @@
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            cursor: pointer;
         }
         
         .screenshot-item:hover {
@@ -185,6 +186,44 @@
             font-size: 18px;
             color: #2d3748;
             text-align: center;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 0 50px rgba(255,255,255,0.3);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .lightbox-close:hover {
+            transform: scale(1.2);
         }
         
         /* Features Section */
@@ -323,37 +362,43 @@
     <section class="screenshots">
         <h2>Une interface moderne et intuitive</h2>
         <div class="screenshot-grid">
-            <div class="screenshot-item">
+            <div class="screenshot-item" onclick="openLightbox('images/1-dashboard-overview.PNG')">
                 <img src="images/1-dashboard-overview.PNG" alt="Dashboard ComptaFlow Pro">
                 <h3>📊 Tableau de bord intelligent</h3>
             </div>
             
-            <div class="screenshot-item">
+            <div class="screenshot-item" onclick="openLightbox('images/2-sales-list.PNG')">
                 <img src="images/2-sales-list.PNG" alt="Liste des recettes">
                 <h3>💰 Gestion des recettes</h3>
             </div>
             
-            <div class="screenshot-item">
+            <div class="screenshot-item" onclick="openLightbox('images/4-expenses-list.PNG')">
                 <img src="images/4-expenses-list.PNG" alt="Liste des dépenses">
                 <h3>💸 Suivi des dépenses</h3>
             </div>
             
-            <div class="screenshot-item">
+            <div class="screenshot-item" onclick="openLightbox('images/6-declaration-tva-ca3.PNG')">
                 <img src="images/6-declaration-tva-ca3.PNG" alt="Déclaration TVA CA3">
                 <h3>📋 Déclaration TVA CA3</h3>
             </div>
             
-            <div class="screenshot-item">
+            <div class="screenshot-item" onclick="openLightbox('images/8-rapprochement-bancaire.PNG')">
                 <img src="images/8-rapprochement-bancaire.PNG" alt="Rapprochement bancaire">
                 <h3>🏦 Rapprochement bancaire</h3>
             </div>
             
-            <div class="screenshot-item">
+            <div class="screenshot-item" onclick="openLightbox('images/9-liasse-fiscale-2031.PNG')">
                 <img src="images/9-liasse-fiscale-2031.PNG" alt="Liasse fiscale 2031">
                 <h3>📑 Liasse fiscale 2031</h3>
             </div>
         </div>
     </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Screenshot">
+    </div>
 
     <!-- Features Section -->
     <section class="features">
@@ -417,5 +462,24 @@
             <a href="#">CGV</a>
         </p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightbox-img').src = src;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // Fermer avec Echap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
 </body>
 </html>
