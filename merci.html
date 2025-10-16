@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci pour votre achat - ComptaFlow Pro</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .success-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+        }
+        h1 {
+            color: #2d3748;
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+        .subtitle {
+            color: #718096;
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+        .license-box {
+            background: #f7fafc;
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+        .license-label {
+            color: #4a5568;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .license-key {
+            font-family: 'Courier New', monospace;
+            font-size: 20px;
+            font-weight: bold;
+            color: #667eea;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            word-break: break-all;
+        }
+        .copy-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .copy-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        .copy-btn.copied {
+            background: #48bb78;
+        }
+        .instructions {
+            text-align: left;
+            margin: 32px 0;
+            padding: 24px;
+            background: #edf2f7;
+            border-radius: 8px;
+        }
+        .instructions h3 {
+            color: #2d3748;
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+        .instructions ol {
+            margin-left: 20px;
+        }
+        .instructions li {
+            color: #4a5568;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        .actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        .btn-secondary:hover {
+            background: #f7fafc;
+        }
+        .email-notice {
+            background: #bee3f8;
+            border-left: 4px solid #3182ce;
+            padding: 16px;
+            border-radius: 4px;
+            margin: 24px 0;
+            text-align: left;
+        }
+        .email-notice p {
+            color: #2c5282;
+            margin: 0;
+            font-size: 14px;
+        }
+        .loading {
+            text-align: center;
+            padding: 48px;
+        }
+        .spinner {
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 32px 24px; }
+            h1 { font-size: 24px; }
+            .license-key { font-size: 16px; }
+            .actions { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p style="color: #718096;">Récupération de votre licence...</p>
+        </div>
+
+        <div id="content" style="display: none;">
+            <div class="success-icon">🎉</div>
+            <h1>Merci pour votre achat !</h1>
+            <p class="subtitle">Votre paiement a été confirmé avec succès</p>
+
+            <div class="email-notice">
+                <p>📧 Un email de confirmation avec votre clé de licence a été envoyé à <strong id="customer-email"></strong></p>
+            </div>
+
+            <div class="license-box">
+                <div class="license-label">Votre clé de licence</div>
+                <div class="license-key" id="license-key">CFPRO-XXXX-XXXX-XXXX-XXXX</div>
+                <button class="copy-btn" id="copy-btn" onclick="copyLicense()">
+                    📋 Copier la clé
+                </button>
+            </div>
+
+            <div class="instructions">
+                <h3>📖 Comment activer votre licence ?</h3>
+                <ol>
+                    <li>Téléchargez le plugin ComptaFlow Pro (lien ci-dessous)</li>
+                    <li>Installez-le sur votre site WordPress : <strong>Extensions → Ajouter → Téléverser</strong></li>
+                    <li>Activez le plugin</li>
+                    <li>Allez dans <strong>ComptaFlow → Licence</strong></li>
+                    <li>Collez votre clé de licence et cliquez sur <strong>"Activer"</strong></li>
+                    <li>✅ C'est prêt ! Profitez de toutes les fonctionnalités</li>
+                </ol>
+            </div>
+
+            <div class="actions">
+                <a href="https://github.com/comptaflow-pro/plugin/releases/latest/download/comptaflow-pro.zip" class="btn btn-primary">
+                    📥 Télécharger le plugin
+                </a>
+                <a href="mon-compte.html" class="btn btn-secondary">
+                    👤 Mon compte
+                </a>
+            </div>
+        </div>
+
+        <div id="error" style="display: none; text-align: center;">
+            <div style="font-size: 48px; margin-bottom: 16px;">😕</div>
+            <h2 style="color: #e53e3e; margin-bottom: 16px;">Erreur lors de la récupération</h2>
+            <p style="color: #718096; margin-bottom: 24px;">
+                Nous n'avons pas pu récupérer votre clé de licence automatiquement.<br>
+                Vérifiez votre email ou contactez-nous.
+            </p>
+            <a href="mailto:adminia@meetempo.com" class="btn btn-primary">
+                📧 Contacter le support
+            </a>
+        </div>
+    </div>
+
+    <script>
+        async function loadLicense() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const sessionId = urlParams.get('session_id');
+
+            if (!sessionId) {
+                showError();
+                return;
+            }
+
+            try {
+                const response = await fetch('https://api-comptaflow.meetempo.com/lookup-license', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ session_id: sessionId })
+                });
+
+                const data = await response.json();
+
+                if (data.success && data.license_key) {
+                    document.getElementById('license-key').textContent = data.license_key;
+                    document.getElementById('customer-email').textContent = data.email || 'votre adresse email';
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('content').style.display = 'block';
+                } else {
+                    showError();
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showError();
+            }
+        }
+
+        function showError() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+        }
+
+        function copyLicense() {
+            const licenseKey = document.getElementById('license-key').textContent;
+            const btn = document.getElementById('copy-btn');
+
+            navigator.clipboard.writeText(licenseKey).then(() => {
+                btn.textContent = '✅ Clé copiée !';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = '📋 Copier la clé';
+                    btn.classList.remove('copied');
+                }, 3000);
+            });
+        }
+
+        // Charger la licence au chargement de la page
+        window.addEventListener('DOMContentLoaded', loadLicense);
+    </script>
+</body>
+</html>
