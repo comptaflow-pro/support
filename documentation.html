@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - ComptaFlow Pro</title>
+    <meta name="description" content="Guide complet d'utilisation de ComptaFlow Pro : installation, configuration, gestion comptable conforme.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #f7fafc;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 48px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation sticky */
+        nav {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 32px;
+            overflow-x: auto;
+        }
+        
+        nav a {
+            padding: 18px 0;
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        nav a:hover, nav a.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        /* Sections */
+        section {
+            background: white;
+            border-radius: 12px;
+            padding: 48px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        section h2 {
+            font-size: 32px;
+            color: #2d3748;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        section h3 {
+            font-size: 24px;
+            color: #2d3748;
+            margin: 32px 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        section h3 .icon {
+            font-size: 28px;
+        }
+        
+        /* Steps */
+        .steps {
+            counter-reset: step;
+        }
+        
+        .step {
+            position: relative;
+            padding: 24px;
+            margin: 24px 0;
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
+        }
+        
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .step h4 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #2d3748;
+        }
+        
+        .step p {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        /* Screenshots */
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        
+        .screenshot {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .screenshot:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .screenshot-caption {
+            padding: 16px;
+            background: #f7fafc;
+            font-weight: 600;
+            color: #2d3748;
+            text-align: center;
+        }
+        
+        /* Features list */
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 32px 0;
+        }
+        
+        .feature-card {
+            padding: 24px;
+            background: #f7fafc;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature-card h4 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .feature-card p {
+            color: #4a5568;
+            font-size: 15px;
+        }
+        
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 48px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 48px 0;
+        }
+        
+        .cta-box h3 {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .cta-box p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 16px 48px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Accordion FAQ */
+        .faq-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px 24px;
+            background: #f7fafc;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: #edf2f7;
+        }
+        
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px 24px;
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(180deg);
+        }
+        
+        .faq-question::after {
+            content: "▼";
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+        
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+        }
+        
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        table td {
+            padding: 16px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        table tr:hover {
+            background: #f7fafc;
+        }
+        
+        /* Alert box */
+        .alert {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 24px 0;
+            border-left: 4px solid;
+        }
+        
+        .alert-info {
+            background: #e6f7ff;
+            border-color: #1890ff;
+            color: #0050b3;
+        }
+        
+        .alert-success {
+            background: #f6ffed;
+            border-color: #52c41a;
+            color: #389e0d;
+        }
+        
+        .alert-warning {
+            background: #fffbe6;
+            border-color: #faad14;
+            color: #d48806;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 32px; }
+            section { padding: 32px 24px; }
+            section h2 { font-size: 26px; }
+            .step { margin-left: 20px; }
+            nav .container { gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>📚 Documentation ComptaFlow Pro</h1>
+        <p>Guide complet pour maîtriser votre comptabilité en toute autonomie</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#installation" class="active">Installation</a>
+            <a href="#configuration">Configuration</a>
+            <a href="#fonctionnalites">Fonctionnalités</a>
+            <a href="#exports">Exports</a>
+            <a href="#tva">TVA</a>
+            <a href="#liasse">Liasse 2031</a>
+            <a href="#faq">FAQ</a>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container">
+        
+        <!-- Installation -->
+        <section id="installation">
+            <h2>🚀 Installation & Activation</h2>
+            
+            <div class="alert alert-info">
+                <strong>📥 Avant de commencer</strong> : Assurez-vous d'avoir votre clé de licence ComptaFlow Pro (reçue par email après l'achat).
+            </div>
+            
+            <h3><span class="icon">📦</span>Étapes d'installation</h3>
+            
+            <div class="steps">
+                <div class="step">
+                    <h4>Téléchargez le plugin</h4>
+                    <p>Rendez-vous sur votre compte client ou cliquez sur le lien reçu par email pour télécharger le fichier <strong>comptaflow-pro.zip</strong></p>
+                </div>
+                
+                <div class="step">
+                    <h4>Installez sur WordPress</h4>
+                    <p>Dans votre admin WordPress : <strong>Extensions → Ajouter → Téléverser</strong>. Sélectionnez le fichier .zip et cliquez sur "Installer maintenant".</p>
+                </div>
+                
+                <div class="step">
+                    <h4>Activez le plugin</h4>
+                    <p>Une fois installé, cliquez sur <strong>"Activer le plugin"</strong>. Un nouveau menu "ComptaFlow Pro" apparaît dans votre tableau de bord.</p>
+                </div>
+                
+                <div class="step">
+                    <h4>Entrez votre clé de licence</h4>
+                    <p>Allez dans <strong>ComptaFlow → 🔑 Licence</strong>, collez votre clé de licence (format : CFPRO-XXXX-XXXX-XXXX-XXXX) et cliquez sur <strong>"Activer"</strong>.</p>
+                </div>
+                
+                <div class="step">
+                    <h4>✅ C'est prêt !</h4>
+                    <p>Votre plan est activé et toutes les fonctionnalités sont débloquées. Vous pouvez maintenant configurer votre entreprise.</p>
+                </div>
+            </div>
+            
+            <div class="alert alert-success">
+                <strong>✅ Licence activée avec succès</strong> : Le badge de votre plan (STANDARD, PLUS ou VIP) s'affiche en haut à droite du menu ComptaFlow.
+            </div>
+        </section>
+
+        <!-- Configuration -->
+        <section id="configuration">
+            <h2>⚙️ Configuration Initiale</h2>
+            
+            <h3><span class="icon">🏢</span>Paramétrage de votre entreprise</h3>
+            
+            <p>Avant de commencer la saisie, configurez les informations de votre entreprise :</p>
+            
+            <table>
+                <tr>
+                    <th>Paramètre</th>
+                    <th>Description</th>
+                    <th>Obligatoire</th>
+                </tr>
+                <tr>
+                    <td><strong>Raison sociale</strong></td>
+                    <td>Nom légal de votre entreprise</td>
+                    <td>✅ Oui</td>
+                </tr>
+                <tr>
+                    <td><strong>SIRET</strong></td>
+                    <td>Numéro d'identification (14 chiffres)</td>
+                    <td>✅ Oui</td>
+                </tr>
+                <tr>
+                    <td><strong>Forme juridique</strong></td>
+                    <td>SASU, EURL, Auto-entrepreneur, etc.</td>
+                    <td>✅ Oui</td>
+                </tr>
+                <tr>
+                    <td><strong>Régime fiscal</strong></td>
+                    <td>Réel simplifié ou Réel normal</td>
+                    <td>✅ Oui</td>
+                </tr>
+                <tr>
+                    <td><strong>Régime TVA</strong></td>
+                    <td>Franchise, Réel simplifié, Réel normal</td>
+                    <td>✅ Oui</td>
+                </tr>
+                <tr>
+                    <td><strong>Date clôture exercice</strong></td>
+                    <td>Généralement 31/12</td>
+                    <td>✅ Oui</td>
+                </tr>
+            </table>
+            
+            <div class="alert alert-warning">
+                <strong>⚠️ Important</strong> : Ces paramètres impactent la génération des déclarations fiscales. Vérifiez-les auprès de votre expert-comptable si vous avez un doute.
+            </div>
+        </section>
+
+        <!-- Fonctionnalités -->
+        <section id="fonctionnalites">
+            <h2>✨ Fonctionnalités Principales</h2>
+            
+            <h3><span class="icon">💰</span>Gestion des Recettes</h3>
+            
+            <div class="screenshot-grid">
+                <div class="screenshot">
+                    <img src="images/2-sales-list.PNG" alt="Liste des recettes">
+                    <div class="screenshot-caption">Liste des recettes</div>
+                </div>
+                <div class="screenshot">
+                    <img src="images/3-sales-form.PNG" alt="Formulaire recette">
+                    <div class="screenshot-caption">Saisie d'une recette</div>
+                </div>
+            </div>
+            
+            <p><strong>Saisie simplifiée de vos ventes :</strong></p>
+            <ul style="line-height: 2; margin: 16px 0 16px 20px;">
+                <li>Numéro de facture généré automatiquement</li>
+                <li>Calcul automatique de la TVA selon le taux choisi</li>
+                <li>Génération d'écritures comptables conformes au PCG</li>
+                <li>Catégorisation par client et type de vente</li>
+                <li>Joindre les factures PDF directement</li>
+            </ul>
+            
+            <h3><span class="icon">💸</span>Gestion des Dépenses</h3>
+            
+            <div class="screenshot-grid">
+                <div class="screenshot">
+                    <img src="images/4-expenses-list.PNG" alt="Liste des dépenses">
+                    <div class="screenshot-caption">Liste des dépenses</div>
+                </div>
+                <div class="screenshot">
+                    <img src="images/5-expenses-form.PNG" alt="Formulaire dépense">
+                    <div class="screenshot-caption">Saisie d'une dépense</div>
+                </div>
+            </div>
+            
+            <p><strong>Suivi complet de vos achats :</strong></p>
+            <ul style="line-height: 2; margin: 16px 0 16px 20px;">
+                <li>Saisie rapide avec suggestion de comptes comptables</li>
+                <li>Récupération automatique de la TVA déductible</li>
+                <li>Catégories prédéfinies (loyer, fournitures, déplacements, etc.)</li>
+                <li>Import des factures fournisseurs</li>
+                <li>Rapprochement bancaire simplifié</li>
+            </ul>
+            
+            <h3><span class="icon">🏦</span>Rapprochement Bancaire</h3>
+            
+            <div class="screenshot-grid">
+                <div class="screenshot">
+                    <img src="images/8-rapprochement-bancaire.PNG" alt="Rapprochement bancaire">
+                    <div class="screenshot-caption">Rapprochement bancaire intelligent</div>
+                </div>
+            </div>
+            
+            <p><strong>Réconciliation automatique de vos opérations :</strong></p>
+            <ul style="line-height: 2; margin: 16px 0 16px 20px;">
+                <li>Import relevés bancaires (CSV, OFX)</li>
+                <li>Rapprochement automatique par montant et date</li>
+                <li>Détection des écarts</li>
+                <li>Validation en un clic</li>
+                <li>Suivi du solde bancaire en temps réel</li>
+            </ul>
+            
+            <div class="features-list">
+                <div class="feature-card">
+                    <h4>📊 <strong>Personnel & Paie</strong></h4>
+                    <p>Saisie simplifiée des salaires et charges sociales (plans PLUS et VIP)</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🏭 <strong>Immobilisations</strong></h4>
+                    <p>Gestion des actifs et calcul automatique des amortissements (plans PLUS et VIP)</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔔 <strong>Alertes Intelligentes</strong></h4>
+                    <p>Notifications pour les échéances TVA, déclarations et paiements (plans PLUS et VIP)</p>
+                </div>
+                <div class="feature-card">
+                    <h4>👥 <strong>Collaboration</strong></h4>
+                    <p>Invitez votre expert-comptable pour validation (plan VIP uniquement)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exports -->
+        <section id="exports">
+            <h2>📤 Exports Conformes DGFiP</h2>
+            
+            <h3><span class="icon">📋</span>Documents disponibles</h3>
+            
+            <table>
+                <tr>
+                    <th>Export</th>
+                    <th>Format</th>
+                    <th>Utilisation</th>
+                    <th>Plan requis</th>
+                </tr>
+                <tr>
+                    <td><strong>FEC</strong> (Fichier des Écritures Comptables)</td>
+                    <td>TXT</td>
+                    <td>Contrôle fiscal, transmission expert-comptable</td>
+                    <td>Tous</td>
+                </tr>
+                <tr>
+                    <td><strong>Balance</strong></td>
+                    <td>PDF/Excel</td>
+                    <td>Vue synthétique des comptes</td>
+                    <td>Tous</td>
+                </tr>
+                <tr>
+                    <td><strong>Journal</strong></td>
+                    <td>PDF/Excel</td>
+                    <td>Chronologie des écritures</td>
+                    <td>Tous</td>
+                </tr>
+                <tr>
+                    <td><strong>Grand Livre</strong></td>
+                    <td>PDF/Excel</td>
+                    <td>Détail par compte comptable</td>
+                    <td>Tous</td>
+                </tr>
+                <tr>
+                    <td><strong>Compte de Résultat</strong></td>
+                    <td>PDF</td>
+                    <td>Synthèse charges/produits</td>
+                    <td>Tous</td>
+                </tr>
+            </table>
+            
+            <div class="alert alert-success">
+                <strong>✅ Conformité garantie</strong> : Tous nos exports respectent strictement les normes DGFiP et sont acceptés par l'administration fiscale.
+            </div>
+        </section>
+
+        <!-- TVA -->
+        <section id="tva">
+            <h2>💶 Gestion de la TVA</h2>
+            
+            <div class="alert alert-info">
+                <strong>🔒 Fonctionnalité réservée aux plans PLUS et VIP</strong>
+            </div>
+            
+            <h3><span class="icon">📋</span>Déclarations automatiques</h3>
+            
+            <div class="screenshot-grid">
+                <div class="screenshot">
+                    <img src="images/6-declaration-tva-ca3.PNG" alt="Déclaration CA3">
+                    <div class="screenshot-caption">Déclaration TVA CA3 (mensuelle)</div>
+                </div>
+                <div class="screenshot">
+                    <img src="images/7-declaration-tva-ca12.PNG" alt="Déclaration CA12">
+                    <div class="screenshot-caption">Déclaration TVA CA12 (annuelle)</div>
+                </div>
+            </div>
+            
+            <p><strong>ComptaFlow Pro génère automatiquement :</strong></p>
+            <ul style="line-height: 2; margin: 16px 0 16px 20px;">
+                <li><strong>CA3</strong> : Déclaration mensuelle/trimestrielle (régime réel normal)</li>
+                <li><strong>CA12</strong> : Déclaration annuelle (régime réel simplifié)</li>
+                <li>Calcul automatique de la TVA collectée et déductible</li>
+                <li>Gestion des acomptes trimestriels</li>
+                <li>Suivi des paiements effectués</li>
+                <li>Alertes avant les échéances</li>
+            </ul>
+            
+            <div class="alert alert-warning">
+                <strong>⚠️ Rappel</strong> : ComptaFlow prépare vos déclarations mais ne les transmet pas automatiquement. Vous devez les télédéclarer sur impots.gouv.fr
+            </div>
+        </section>
+
+        <!-- Liasse 2031 -->
+        <section id="liasse">
+            <h2>📊 Liasse Fiscale 2031</h2>
+            
+            <div class="alert alert-info">
+                <strong>👑 Fonctionnalité exclusive au plan VIP</strong>
+            </div>
+            
+            <h3><span class="icon">📄</span>Génération automatique</h3>
+            
+            <div class="screenshot-grid">
+                <div class="screenshot">
+                    <img src="images/9-liasse-fiscale-2031.PNG" alt="Liasse fiscale 2031">
+                    <div class="screenshot-caption">Liasse fiscale 2031 générée</div>
+                </div>
+            </div>
+            
+            <p><strong>Documents inclus :</strong></p>
+            <ul style="line-height: 2; margin: 16px 0 16px 20px;">
+                <li><strong>2031-SD</strong> : Bilan simplifié</li>
+                <li><strong>2033-A</strong> : Compte de résultat simplifié</li>
+                <li><strong>2033-B</strong> : Immobilisations et amortissements</li>
+                <li><strong>2033-C</strong> : Tableau des provisions</li>
+                <li><strong>2033-D</strong> : Relevé de certaines charges</li>
+                <li><strong>2033-E</strong> : Détermination des plus ou moins-values</li>
+            </ul>
+            
+            <p><strong>Avantages :</strong></p>
+            <ul style="line-height: 2; margin: 16px 0 16px 20px;">
+                <li>✅ Calculs automatiques conformes au PCG</li>
+                <li>✅ Remplissage prédéfini à partir de votre comptabilité</li>
+                <li>✅ Exports PDF prêts pour transmission</li>
+                <li>✅ Économie de plusieurs heures de travail</li>
+                <li>✅ Réduction des erreurs de saisie</li>
+            </ul>
+        </section>
+
+        <!-- CTA Conversion -->
+        <div class="cta-box">
+            <h3>🚀 Prêt à simplifier votre comptabilité ?</h3>
+            <p>Découvrez nos offres et choisissez le plan adapté à vos besoins</p>
+            <a href="tarifs.html" class="cta-button">Voir les tarifs →</a>
+        </div>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <h2>❓ Foire Aux Questions</h2>
+            
+            <h3><span class="icon">🔧</span>Installation & Activation</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">Comment récupérer ma clé de licence ?</div>
+                <div class="faq-answer">
+                    <p>Votre clé de licence est envoyée automatiquement par email après l'achat (depuis noreply@meetempo.com). Vous pouvez également la retrouver en vous connectant sur votre compte client : <a href="mon-compte.html" style="color: #667eea; font-weight: 600;">Mon Compte</a></p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Puis-je utiliser ma licence sur plusieurs sites ?</div>
+                <div class="faq-answer">
+                    <p>Non, chaque licence est liée à un seul nom de domaine. Si vous gérez plusieurs sites, vous devez souscrire un abonnement par site.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Que se passe-t-il si je change de site WordPress ?</div>
+                <div class="faq-answer">
+                    <p>Contactez notre support à adminia@meetempo.com pour désactiver la licence sur l'ancien site et l'activer sur le nouveau. Cette opération peut être effectuée une fois par trimestre.</p>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 48px;"><span class="icon">💡</span>Utilisation</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">ComptaFlow remplace-t-il un expert-comptable ?</div>
+                <div class="faq-answer">
+                     <p>ComptaFlow facilite votre comptabilité et génère tous les documents conformes, mais ne remplace pas un expert-comptable pour la validation finale et les déclarations officielles. En revanche, il réduit considérablement les honoraires en automatisant 80% du travail.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Le FEC généré est-il vraiment conforme DGFiP ?</div>
+                <div class="faq-answer">
+                    <p>Oui, absolument. Notre format FEC respecte strictement les spécifications techniques de la Direction Générale des Finances Publiques (arrêté du 29 juillet 2013). Il a été validé par plusieurs experts-comptables et est accepté lors des contrôles fiscaux.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Puis-je importer mes anciennes données comptables ?</div>
+                <div class="faq-answer">
+                    <p>Vous pouvez importer vos relevés bancaires (CSV, OFX) pour le rapprochement. Pour l'import complet d'écritures, contactez le support qui vous guidera selon votre situation.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Comment exporter mes données pour mon expert-comptable ?</div>
+                <div class="faq-answer">
+                    <p>Allez dans <strong>ComptaFlow → Exports</strong> et générez le FEC (Fichier des Écritures Comptables). C'est le format standard demandé par tous les experts-comptables français. Vous pouvez également exporter la Balance et le Grand Livre.</p>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 48px;"><span class="icon">📋</span>TVA & Déclarations</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">Comment déclarer ma TVA avec ComptaFlow ?</div>
+                <div class="faq-answer">
+                    <p><strong>Plans PLUS et VIP uniquement :</strong> Allez dans <strong>ComptaFlow → Déclarations TVA</strong>. Le formulaire (CA3 ou CA12) est pré-rempli automatiquement. Vérifiez les montants, puis copiez-les dans votre déclaration sur impots.gouv.fr.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">ComptaFlow transmet-il automatiquement mes déclarations ?</div>
+                <div class="faq-answer">
+                    <p>Non. ComptaFlow <strong>prépare</strong> vos déclarations (calculs automatiques, pré-remplissage) mais ne les transmet pas. Vous devez vous connecter sur impots.gouv.fr pour valider et télédéclarer.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Que faire si je suis en franchise de TVA ?</div>
+                <div class="faq-answer">
+                    <p>Sélectionnez "Franchise en base" dans <strong>Paramétrage → TVA</strong>. ComptaFlow n'appliquera pas de TVA sur vos transactions et vous n'aurez pas de déclarations à faire.</p>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 48px;"><span class="icon">💳</span>Facturation & Abonnement</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">Comment changer de plan ?</div>
+                <div class="faq-answer">
+                    <p>Connectez-vous sur <a href="mon-compte.html" style="color: #667eea; font-weight: 600;">Mon Compte</a> et cliquez sur "Gérer mon abonnement". Vous serez redirigé vers le portail Stripe où vous pourrez changer de plan instantanément.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Comment annuler mon abonnement ?</div>
+                <div class="faq-answer">
+                    <p>Rendez-vous sur <a href="mon-compte.html" style="color: #667eea; font-weight: 600;">Mon Compte</a> → "Gérer mon abonnement" → "Annuler l'abonnement". Vous conservez l'accès jusqu'à la fin de la période payée.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Que se passe-t-il si mon paiement échoue ?</div>
+                <div class="faq-answer">
+                    <p>Stripe réessaiera automatiquement 3 fois sur 2 semaines. Vous recevrez un email d'alerte pour mettre à jour votre carte. Si tous les essais échouent, votre licence sera suspendue jusqu'au régularisation du paiement.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Puis-je obtenir un remboursement ?</div>
+                <div class="faq-answer">
+                    <p>Contactez notre support à <strong>adminia@meetempo.com</strong> dans les 7 jours suivant l'achat si le plugin ne correspond pas à vos attentes. Nous étudierons votre demande au cas par cas.</p>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 48px;"><span class="icon">🆘</span>Support & Aide</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">Comment contacter le support ?</div>
+                <div class="faq-answer">
+                    <p>Envoyez un email à <strong>adminia@meetempo.com</strong>. Délai de réponse :</p>
+                    <ul style="margin: 12px 0 0 20px;">
+                        <li>Plans STANDARD et PLUS : < 24h (jours ouvrés)</li>
+                        <li>Plan VIP : < 4h (support prioritaire)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Existe-t-il des tutoriels vidéo ?</div>
+                <div class="faq-answer">
+                    <p>Oui, nous créons progressivement des tutoriels vidéo sur notre chaîne YouTube. Vous trouverez les liens dans les emails de bienvenue et sur la page d'accueil de votre tableau de bord ComptaFlow.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">ComptaFlow est-il compatible avec WooCommerce ?</div>
+                <div class="faq-answer">
+                    <p>Pas encore nativement, mais vous pouvez exporter vos ventes WooCommerce (CSV) et les importer dans ComptaFlow. Une intégration automatique est prévue pour 2026.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Box -->
+        <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 32px; border-radius: 8px; margin: 48px 0;">
+            <h3 style="margin-top: 0; color: #856404; font-size: 24px;">📧 Besoin d'aide supplémentaire ?</h3>
+            <p style="color: #856404; font-size: 16px; margin: 16px 0;">Notre équipe est là pour vous accompagner :</p>
+            <ul style="color: #856404; line-height: 2; margin-left: 20px;">
+                <li>Email : <a href="mailto:adminia@meetempo.com" style="color: #667eea; font-weight: 600;">adminia@meetempo.com</a></li>
+                <li>Réponse sous 24h (4h pour VIP)</li>
+                <li>Documentation complète et tutoriels vidéo</li>
+            </ul>
+        </div>
+
+        <!-- Footer Navigation -->
+        <div style="background: white; border-radius: 12px; padding: 40px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <h3 style="margin-bottom: 24px;">🔗 Liens Utiles</h3>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html" style="padding: 12px 24px; background: #f7fafc; border-radius: 8px; text-decoration: none; color: #2d3748; font-weight: 600; transition: all 0.3s;">🏠 Accueil</a>
+                <a href="tarifs.html" style="padding: 12px 24px; background: #f7fafc; border-radius: 8px; text-decoration: none; color: #2d3748; font-weight: 600; transition: all 0.3s;">💰 Tarifs</a>
+                <a href="mon-compte.html" style="padding: 12px 24px; background: #f7fafc; border-radius: 8px; text-decoration: none; color: #2d3748; font-weight: 600; transition: all 0.3s;">👤 Mon Compte</a>
+                <a href="mailto:adminia@meetempo.com" style="padding: 12px 24px; background: #667eea; border-radius: 8px; text-decoration: none; color: white; font-weight: 600; transition: all 0.3s;">📧 Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript pour accordion FAQ -->
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const wasActive = item.classList.contains('active');
+                
+                // Fermer tous les autres
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Toggle celui cliqué
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll pour navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                // Mettre à jour l'état actif
+                document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Scroll smooth
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Lightbox pour screenshots
+        document.querySelectorAll('.screenshot').forEach(screenshot => {
+            screenshot.addEventListener('click', () => {
+                const img = screenshot.querySelector('img');
+                const lightbox = document.createElement('div');
+                lightbox.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10000; display: flex; align-items: center; justify-content: center; cursor: zoom-out;';
+                
+                const imgClone = img.cloneNode();
+                imgClone.style.cssText = 'max-width: 90%; max-height: 90%; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);';
+                
+                lightbox.appendChild(imgClone);
+                document.body.appendChild(lightbox);
+                
+                lightbox.addEventListener('click', () => {
+                    document.body.removeChild(lightbox);
+                });
+            });
+        });
+
+        // Intersection Observer pour navigation active
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>
