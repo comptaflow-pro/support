@@ -2,5 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /merci.html
 Disallow: /annulation.html
+Disallow: /mentions-legales
+Disallow: /cgv
+Disallow: /confidentialite
 
 Sitemap: https://comptaflow.meetempo.com/sitemap.xml
