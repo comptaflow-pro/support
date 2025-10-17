@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tarifs ComptaFlow Pro - Choisissez le plan adapté à vos besoins. À partir de 9,90€/mois.">
+    <meta name="description" content="Tarifs ComptaFlow Pro - Choisissez le plan adapté à vos besoins. À partir de 9,99€/mois.">
     <title>Tarifs - ComptaFlow Pro</title>
     <style>
         * {
@@ -15,8 +15,8 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
-            color: #2d3748;
-            background: #ffffff;
+            color: #1a202c;
+            background: #f8fafc;
         }
         
         /* Header */
@@ -27,7 +27,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
         
         nav {
@@ -41,9 +41,10 @@
         
         .logo {
             font-size: 24px;
-            font-weight: bold;
+            font-weight: 700;
             text-decoration: none;
             color: white;
+            letter-spacing: -0.5px;
         }
         
         nav ul {
@@ -55,37 +56,104 @@
         nav a {
             color: white;
             text-decoration: none;
+            font-weight: 500;
             transition: opacity 0.3s;
         }
         
         nav a:hover {
-            opacity: 0.8;
+            opacity: 0.85;
         }
         
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 80px 20px 60px 20px;
+            padding: 100px 20px 80px 20px;
             text-align: center;
         }
         
         .hero h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
+            font-size: 48px;
+            margin-bottom: 20px;
             font-weight: 700;
+            letter-spacing: -1px;
         }
         
         .hero p {
-            font-size: 18px;
+            font-size: 20px;
             opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Toggle Billing */
+        .billing-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px auto 0 auto;
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            width: fit-content;
+        }
+        
+        .billing-toggle span {
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .billing-toggle span.active {
+            opacity: 1;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        
+        .toggle-switch.yearly::after {
+            transform: translateX(30px);
+        }
+        
+        .savings-badge {
+            background: #48bb78;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
         }
         
         /* Container */
         .container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
+            margin: -60px auto 0 auto;
+            padding: 0 20px 80px 20px;
+            position: relative;
+            z-index: 10;
         }
         
         /* Pricing Grid */
@@ -98,24 +166,41 @@
         
         .pricing-card {
             background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 40px 30px;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 2px solid transparent;
         }
         
         .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.25);
             border-color: #667eea;
         }
         
         .pricing-card.popular {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             border-color: #667eea;
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
-            transform: scale(1.05);
+            transform: translateY(-10px) scale(1.02);
+        }
+        
+        .pricing-card.popular:hover {
+            transform: translateY(-15px) scale(1.02);
+        }
+        
+        .pricing-card.popular .plan-name,
+        .pricing-card.popular .plan-price,
+        .pricing-card.popular .plan-description,
+        .pricing-card.popular .features-list li {
+            color: white;
+        }
+        
+        .pricing-card.popular .features-list li::before {
+            color: #90cdf4;
         }
         
         .popular-badge {
@@ -123,60 +208,83 @@
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            background: #667eea;
+            background: #f6ad55;
             color: white;
-            padding: 5px 20px;
+            padding: 6px 20px;
             border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(246, 173, 85, 0.4);
+        }
+        
+        .plan-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
         }
         
         .plan-name {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 22px;
+            font-weight: 700;
             color: #2d3748;
             margin-bottom: 10px;
         }
         
         .plan-price {
-            font-size: 48px;
-            font-weight: bold;
+            font-size: 52px;
+            font-weight: 700;
             color: #667eea;
             margin: 20px 0;
+            letter-spacing: -2px;
+        }
+        
+        .pricing-card.popular .plan-price {
+            color: white;
         }
         
         .plan-price span {
-            font-size: 18px;
+            font-size: 16px;
             color: #718096;
+            font-weight: 500;
+        }
+        
+        .pricing-card.popular .plan-price span {
+            color: rgba(255,255,255,0.8);
         }
         
         .plan-description {
             color: #718096;
             margin-bottom: 30px;
-            font-size: 14px;
+            font-size: 15px;
+            min-height: 40px;
+        }
+        
+        .pricing-card.popular .plan-description {
+            color: rgba(255,255,255,0.9);
         }
         
         .features-list {
             list-style: none;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             text-align: left;
         }
         
         .features-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #f7fafc;
+            padding: 12px 0;
             color: #4a5568;
-        }
-        
-        .features-list li:last-child {
-            border-bottom: none;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
         }
         
         .features-list li::before {
-            content: "✓ ";
+            content: "✓";
             color: #48bb78;
-            font-weight: bold;
-            margin-right: 8px;
+            font-weight: 700;
+            margin-right: 12px;
+            font-size: 18px;
+            flex-shrink: 0;
         }
         
         .features-list li.disabled {
@@ -184,8 +292,16 @@
         }
         
         .features-list li.disabled::before {
-            content: "✗ ";
+            content: "—";
             color: #cbd5e0;
+        }
+        
+        .pricing-card.popular .features-list li.disabled {
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .pricing-card.popular .features-list li.disabled::before {
+            color: rgba(255,255,255,0.5);
         }
         
         .cta-button {
@@ -193,55 +309,85 @@
             width: 100%;
             background: #667eea;
             color: white;
-            padding: 15px 30px;
+            padding: 16px 30px;
             border: none;
-            border-radius: 8px;
-            font-weight: bold;
+            border-radius: 10px;
+            font-weight: 600;
             font-size: 16px;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
         
         .cta-button:hover {
             background: #5568d3;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
         }
         
         .cta-button:active {
             transform: translateY(0);
         }
         
-        .cta-button:disabled {
-            background: #cbd5e0;
-            cursor: not-allowed;
-            transform: none;
+        .pricing-card.popular .cta-button {
+            background: white;
+            color: #667eea;
+        }
+        
+        .pricing-card.popular .cta-button:hover {
+            background: #f7fafc;
         }
         
         /* Savings Badge */
         .savings {
-            background: #48bb78;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
             color: white;
-            padding: 5px 15px;
+            padding: 6px 15px;
             border-radius: 20px;
             font-size: 12px;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+        }
+        
+        /* Guarantee Section */
+        .guarantee {
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+            padding: 50px 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .guarantee h3 {
+            font-size: 26px;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .guarantee p {
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 16px;
         }
         
         /* FAQ Section */
         .faq-section {
-            background: #f7fafc;
-            padding: 60px 20px;
+            background: white;
+            padding: 80px 20px;
         }
         
         .faq-section h2 {
             text-align: center;
-            font-size: 32px;
-            margin-bottom: 40px;
+            font-size: 36px;
+            margin-bottom: 50px;
             color: #2d3748;
+            font-weight: 700;
         }
         
         .faq-container {
@@ -250,60 +396,49 @@
         }
         
         .faq-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .faq-item:hover {
             background: white;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-color: #e2e8f0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
         
         .faq-question {
-            font-weight: bold;
+            font-weight: 600;
             color: #2d3748;
-            margin-bottom: 10px;
-            font-size: 16px;
+            margin-bottom: 12px;
+            font-size: 17px;
         }
         
         .faq-answer {
             color: #4a5568;
             line-height: 1.8;
-        }
-        
-        /* Guarantee Section */
-        .guarantee {
-            background: #edf2f7;
-            padding: 40px;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 60px;
-        }
-        
-        .guarantee h3 {
-            font-size: 24px;
-            color: #2d3748;
-            margin-bottom: 15px;
-        }
-        
-        .guarantee p {
-            color: #4a5568;
-            line-height: 1.8;
+            font-size: 15px;
         }
         
         /* Footer */
         footer {
             background: #2d3748;
             color: white;
-            padding: 40px 20px;
+            padding: 50px 20px;
             text-align: center;
         }
         
         footer a {
-            color: #667eea;
+            color: #90cdf4;
             text-decoration: none;
+            transition: color 0.3s;
         }
         
         footer a:hover {
-            text-decoration: underline;
+            color: #63b3ed;
         }
         
         /* Loading */
@@ -314,7 +449,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
             z-index: 9999;
             align-items: center;
             justify-content: center;
@@ -326,19 +462,20 @@
         
         .loading-content {
             background: white;
-            padding: 40px;
-            border-radius: 10px;
+            padding: 50px;
+            border-radius: 16px;
             text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
         
         .spinner {
             border: 4px solid #f3f3f3;
             border-top: 4px solid #667eea;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             animation: spin 1s linear infinite;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 25px auto;
         }
         
         @keyframes spin {
@@ -346,10 +483,16 @@
             100% { transform: rotate(360deg); }
         }
         
+        .loading-content p {
+            color: #4a5568;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 32px;
+                font-size: 36px;
             }
             
             .pricing-grid {
@@ -357,12 +500,20 @@
             }
             
             .pricing-card.popular {
-                transform: scale(1);
+                transform: translateY(0) scale(1);
+            }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-10px) scale(1);
             }
             
             nav ul {
-                flex-direction: column;
-                gap: 10px;
+                gap: 15px;
+                font-size: 14px;
+            }
+            
+            .plan-price {
+                font-size: 44px;
             }
         }
     </style>
@@ -384,7 +535,15 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1>Choisissez votre plan</h1>
-        <p>Tous les plans incluent 30 jours satisfait ou remboursé</p>
+        <p>Démarrez gratuitement, évoluez à votre rythme</p>
+        
+        <!-- Billing Toggle -->
+        <div class="billing-toggle">
+            <span id="monthly-label" class="active">Mensuel</span>
+            <div class="toggle-switch" id="billing-switch" onclick="toggleBilling()"></div>
+            <span id="yearly-label">Annuel</span>
+            <span class="savings-badge">-33%</span>
+        </div>
     </section>
 
     <!-- Pricing Section -->
@@ -392,12 +551,13 @@
         <div class="pricing-grid">
             <!-- Plan STANDARD -->
             <div class="pricing-card">
-                <div class="plan-name">🥉 STANDARD</div>
+                <div class="plan-icon">🥉</div>
+                <div class="plan-name">STANDARD</div>
                 <div class="plan-price">9,99€<span>/mois</span></div>
                 <div class="plan-description">Pour débuter en toute simplicité</div>
                 <ul class="features-list">
                     <li>200 transactions/mois</li>
-                    <li>Tout du plan Gratuit</li>
+                    <li>Recettes & Dépenses</li>
                     <li>Journal comptable</li>
                     <li>Exports FEC/Balance</li>
                     <li>Rapprochement bancaire</li>
@@ -412,7 +572,8 @@
 
             <!-- Plan PLUS -->
             <div class="pricing-card">
-                <div class="plan-name">🥈 PLUS</div>
+                <div class="plan-icon">🥈</div>
+                <div class="plan-name">PLUS</div>
                 <div class="plan-price">13,99€<span>/mois</span></div>
                 <div class="plan-description">Pour professionnels exigeants</div>
                 <ul class="features-list">
@@ -423,53 +584,37 @@
                     <li>Paie simplifiée</li>
                     <li>Immobilisations</li>
                     <li class="disabled">Liasse fiscale 2031</li>
-                    </ul>
+                </ul>
                 <button class="cta-button" onclick="choosePlan('PLUS')">
                     Choisir PLUS
                 </button>
             </div>
 
-            <!-- Plan VIP Mensuel -->
-            <div class="pricing-card popular">
+            <!-- Plan VIP -->
+            <div class="pricing-card popular" id="vip-card">
                 <div class="popular-badge">⭐ POPULAIRE</div>
-                <div class="plan-name">👑 VIP Mensuel</div>
-                <div class="plan-price">19,90€<span>/mois</span></div>
-                <div class="plan-description">Toute la puissance de ComptaFlow</div>
+                <div class="savings" id="vip-savings" style="display: none;">-33%</div>
+                <div class="plan-icon">👑</div>
+                <div class="plan-name" id="vip-name">VIP Mensuel</div>
+                <div class="plan-price"><span id="vip-price">19,90€</span><span id="vip-period">/mois</span></div>
+                <div class="plan-description" id="vip-description">Toute la puissance de ComptaFlow</div>
                 <ul class="features-list">
                     <li>Toutes les fonctionnalités</li>
                     <li>Liasse fiscale 2031</li>
                     <li>Sauvegardes automatiques</li>
-                    <li>Support prioritaire</li>
-                    </ul>
-                <button class="cta-button" onclick="choosePlan('VIP_MONTHLY')">
-                    Choisir VIP Mensuel
-                </button>
-            </div>
-
-            <!-- Plan VIP Annuel -->
-            <div class="pricing-card">
-                <div class="savings">📉 ÉCONOMISEZ 20%</div>
-                <div class="plan-name">👑 VIP Annuel</div>
-                <div class="plan-price">160€<span>/an</span></div>
-                <div class="plan-description">🎁 4 MOIS OFFERTS - Payé annuellement</div>
-                <ul class="features-list">
-                    <li>Toutes les fonctionnalités VIP</li>
-                    <li>au lieu de 238,80€</li>
-                    <li>Facturation annuelle</li>
-                    <li>Support prioritaire</li>
-                    <li>Mises à jour gratuites</li>
-
+                    <li>Support prioritaire < 4h</li>
                 </ul>
-                <button class="cta-button" onclick="choosePlan('VIP_YEARLY')">
-                    Choisir VIP Annuel
+                <button class="cta-button" id="vip-button" onclick="choosePlan('VIP_MONTHLY')">
+                    Choisir VIP Mensuel
                 </button>
             </div>
         </div>
 
         <!-- Guarantee -->
         <div class="guarantee">
-            <h3>🛡️ Sans engagement - Annulation à tout moment</h3>
-            </div>
+            <h3>🛡️ Garantie satisfait ou remboursé 30 jours</h3>
+            <p>Essayez ComptaFlow Pro sans risque. Si vous n'êtes pas satisfait, nous vous remboursons intégralement.</p>
+        </div>
     </div>
 
     <!-- FAQ Section -->
@@ -477,32 +622,32 @@
         <h2>Questions fréquentes</h2>
         <div class="faq-container">
             <div class="faq-item">
-                <div class="faq-question">Puis-je changer de plan à tout moment ?</div>
-                <div class="faq-answer">Oui ! Vous pouvez passer à un plan supérieur ou inférieur à tout moment depuis votre espace client. Les changements sont effectifs immédiatement.</div>
-            </div>
-                        
-            <div class="faq-item">
-                <div class="faq-question">Puis-je annuler mon abonnement ?</div>
-                <div class="faq-answer">Oui, vous pouvez annuler à tout moment sans frais. Vous conservez l'accès jusqu'à la fin de votre période payée.</div>
+                <div class="faq-question">💳 Puis-je changer de plan à tout moment ?</div>
+                <div class="faq-answer">Oui ! Vous pouvez passer à un plan supérieur ou inférieur à tout moment depuis votre espace client. Les changements sont effectifs immédiatement et proratisés.</div>
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">Les prix sont-ils TTC ?</div>
-                <div class="faq-answer">Oui, tous les prix affichés sont TTC (TVA 20% incluse). Aucun frais caché.</div>
+                <div class="faq-question">🔄 Puis-je annuler mon abonnement ?</div>
+                <div class="faq-answer">Oui, vous pouvez annuler à tout moment sans frais. Vous conservez l'accès jusqu'à la fin de votre période payée. Aucun engagement.</div>
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">Quelle est la différence entre VIP Mensuel et Annuel ?</div>
-                <div class="faq-answer">Les fonctionnalités sont identiques. Le plan annuel vous fait économiser 🎁 4 MOIS (au lieu de 238,80€) sur l'année en payant en une seule fois.</div>
+                <div class="faq-question">💰 Les prix sont-ils TTC ?</div>
+                <div class="faq-answer">Oui, tous les prix affichés sont TTC (TVA 20% incluse). Aucun frais caché, aucune surprise.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">🎁 Quelle est la différence entre VIP Mensuel et Annuel ?</div>
+                <div class="faq-answer">Les fonctionnalités sont identiques. Le plan annuel vous fait économiser 33% (soit 4 mois gratuits) en payant en une seule fois : 160€/an au lieu de 238,80€.</div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 ComptaFlow Pro - Tous droits réservés</p>
+        <p style="font-size: 16px; margin-bottom: 15px;">&copy; 2025 ComptaFlow Pro - Tous droits réservés</p>
         <p>
-            <a href="mailto:contact@meetempo.com">Contact</a> | 
+            <a href="mailto:support@meetempo.com">Contact</a> | 
             <a href="#">Mentions légales</a> | 
             <a href="#">CGV</a>
         </p>
@@ -512,7 +657,7 @@
     <div class="loading" id="loading">
         <div class="loading-content">
             <div class="spinner"></div>
-            <p>Redirection vers le paiement sécurisé...</p>
+            <p>Redirection vers le paiement sécurisé Stripe...</p>
         </div>
     </div>
 
@@ -525,6 +670,51 @@
             VIP_MONTHLY: 'price_1SIEVtG34LMwHM1pYMvZlzy1',
             VIP_YEARLY: 'price_1SIEXXG34LMwHM1pumDWx2kG'
         };
+
+        let currentBilling = 'monthly';
+
+        function toggleBilling() {
+            const billingSwitch = document.getElementById('billing-switch');
+            const monthlyLabel = document.getElementById('monthly-label');
+            const yearlyLabel = document.getElementById('yearly-label');
+            const vipCard = document.getElementById('vip-card');
+            const vipName = document.getElementById('vip-name');
+            const vipPrice = document.getElementById('vip-price');
+            const vipPeriod = document.getElementById('vip-period');
+            const vipDescription = document.getElementById('vip-description');
+            const vipButton = document.getElementById('vip-button');
+            const vipSavings = document.getElementById('vip-savings');
+            
+            if (currentBilling === 'monthly') {
+                // Passer en annuel
+                currentBilling = 'yearly';
+                billingSwitch.classList.add('yearly');
+                monthlyLabel.classList.remove('active');
+                yearlyLabel.classList.add('active');
+                
+                vipName.textContent = 'VIP Annuel';
+                vipPrice.textContent = '160€';
+                vipPeriod.textContent = '/an';
+                vipDescription.textContent = '🎁 4 MOIS OFFERTS - soit 13,33€/mois';
+                vipButton.textContent = 'Choisir VIP Annuel';
+                vipButton.setAttribute('onclick', "choosePlan('VIP_YEARLY')");
+                vipSavings.style.display = 'block';
+            } else {
+                // Passer en mensuel
+                currentBilling = 'monthly';
+                billingSwitch.classList.remove('yearly');
+                monthlyLabel.classList.add('active');
+                yearlyLabel.classList.remove('active');
+                
+                vipName.textContent = 'VIP Mensuel';
+                vipPrice.textContent = '19,90€';
+                vipPeriod.textContent = '/mois';
+                vipDescription.textContent = 'Toute la puissance de ComptaFlow';
+                vipButton.textContent = 'Choisir VIP Mensuel';
+                vipButton.setAttribute('onclick', "choosePlan('VIP_MONTHLY')");
+                vipSavings.style.display = 'none';
+            }
+        }
 
         async function choosePlan(plan) {
             const priceId = PRICE_IDS[plan];
