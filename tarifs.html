@@ -102,8 +102,8 @@
         .savings-badge { background: #48bb78; color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 800; }
 
         /* Pricing Grid */
-        .container { max-width: 1200px; margin: -50px auto 0; padding: 0 20px 80px; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .container { max-width: 1200px; margin: -50px auto 0; padding: 0 20px 120px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; }
         
         .pricing-card {
             background: white;
@@ -115,38 +115,46 @@
             display: flex;
             flex-direction: column;
             border: 1px solid #edf2f7;
+            height: 100%;
         }
         
-        .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(74, 81, 224, 0.1); }
+        .pricing-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         
+        /* MISE EN AVANT VIP RENFORCÉE */
         .pricing-card.popular {
-            background: #ffffff;
-            border: 2px solid #4a51e0;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 100%);
+            border: 3px solid #4a51e0;
             position: relative;
-            transform: scale(1.05);
-            z-index: 5;
+            transform: scale(1.1);
+            z-index: 10;
+            box-shadow: 0 30px 60px rgba(74, 81, 224, 0.18);
         }
 
         .popular-badge {
             position: absolute;
-            top: -15px; left: 50%;
+            top: -18px; left: 50%;
             transform: translateX(-50%);
             background: #ff9800;
             color: white;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 800;
-            box-shadow: 0 4px 10px rgba(255,152,0,0.3);
+            padding: 6px 25px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 900;
+            box-shadow: 0 4px 15px rgba(255,152,0,0.4);
+            letter-spacing: 0.5px;
         }
 
         .plan-name { font-size: 14px; font-weight: 800; color: #718096; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
         .plan-price { font-size: 48px; font-weight: 800; color: #1a202c; margin: 10px 0; letter-spacing: -1px; }
-        .plan-price span { font-size: 16px; color: #a0aec0; font-weight: 500; }
-        .plan-description { color: #718096; font-size: 14px; margin-bottom: 30px; height: 40px; }
+        
+        /* Prix VIP spécifique */
+        #vip-price { color: #4a51e0 !important; }
 
-        .features-list { list-style: none; text-align: left; margin-bottom: 30px; flex-grow: 1; }
-        .features-list li { padding: 10px 0; font-size: 15px; color: #4a5568; display: flex; align-items: center; }
+        .plan-price span { font-size: 16px; color: #a0aec0; font-weight: 500; }
+        .plan-description { color: #718096; font-size: 14px; margin-bottom: 30px; min-height: 40px; }
+
+        .features-list { list-style: none; text-align: left; margin-bottom: 30px; flex-grow: 1; border-top: 1px solid #edf2f7; padding-top: 20px; }
+        .features-list li { padding: 8px 0; font-size: 15px; color: #4a5568; display: flex; align-items: center; }
         .features-list li::before { content: "✓"; color: #48bb78; font-weight: 900; margin-right: 12px; }
         .features-list li.disabled { color: #cbd5e0; }
         .features-list li.disabled::before { content: "×"; color: #cbd5e0; }
@@ -165,10 +173,11 @@
         }
         
         .cta-button:hover { background: #373dbd; box-shadow: 0 8px 20px rgba(74, 81, 224, 0.3); }
+        
+        /* Bouton VIP plus grand */
+        #vip-button { font-size: 18px; padding: 18px; }
 
-        /* Trust Icons under buttons */
-        .trust-icons { margin-top: 15px; font-size: 11px; color: #a0aec0; font-weight: 600; display: flex; justify-content: center; gap: 8px; align-items: center; }
-        .trust-icons img { opacity: 0.5; height: 14px; }
+        .trust-icons { margin-top: 15px; font-size: 11px; color: #a0aec0; font-weight: 600; text-align: center; }
 
         /* FAQ */
         .faq-section { background: white; padding: 80px 20px; }
@@ -184,9 +193,8 @@
         .spinner { border: 4px solid rgba(255,255,255,0.1); border-top: 4px solid white; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 20px; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .pricing-card.popular { transform: scale(1); margin: 20px 0; }
+        @media (max-width: 992px) {
+            .pricing-card.popular { transform: scale(1); margin: 30px 0; }
             .container { margin-top: -30px; }
         }
     </style>
@@ -232,7 +240,7 @@
                     <li class="disabled">Liasse fiscale 2031</li>
                 </ul>
                 <button class="cta-button" onclick="choosePlan('STANDARD')">Choisir Standard</button>
-                <div class="trust-icons">🔒 Paiement sécurisé par Stripe</div>
+                <div class="trust-icons">🔒 Paiement sécurisé Stripe</div>
             </div>
 
             <div class="pricing-card">
@@ -253,21 +261,27 @@
 
             <div class="pricing-card popular" id="vip-card">
                 <div class="popular-badge">RECOMMANDÉ</div>
-                <div class="plan-name" id="vip-name">VIP Mensuel</div>
-                <div class="plan-price"><span id="vip-price">19,90€</span><span id="vip-period">/mois</span></div>
-                <div class="plan-description" id="vip-description">L'automatisation fiscale complète</div>
+                <div class="plan-name" id="vip-name" style="color: #4a51e0;">VIP Mensuel</div>
+                <div class="plan-price">
+                    <span id="vip-price">19,90€</span><span id="vip-period">/mois</span>
+                </div>
+                <div class="plan-description" id="vip-description" style="font-weight: 600;">
+                    L'automatisation fiscale complète
+                </div>
                 <ul class="features-list">
                     <li>Toutes les fonctionnalités</li>
                     <li><strong>Liasse fiscale 2031</strong></li>
                     <li>Sauvegardes auto</li>
                     <li>Support prioritaire 7j/7</li>
                 </ul>
-                <button class="cta-button" id="vip-button" onclick="choosePlan('VIP_MONTHLY')">Choisir VIP</button>
-                <div class="trust-icons">✨ Sans engagement</div>
+                <button class="cta-button" id="vip-button" onclick="choosePlan('VIP_MONTHLY')">
+                    Choisir VIP
+                </button>
+                <div class="trust-icons" style="color: #4a51e0;">✨ Sérénité fiscale garantie</div>
             </div>
         </div>
 
-        <div style="text-align: center; margin-top: 40px; color: #718096; font-size: 14px;">
+        <div style="text-align: center; margin-top: 60px; color: #718096; font-size: 14px;">
             <p>🛡️ 100% Satisfait ou Remboursé | Conforme normes DGFiP 2026</p>
         </div>
     </div>
