@@ -24,19 +24,19 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
-            color: #1a202c;
-            background: #f8fafc;
+            color: #2d3748;
+            background: #f4f7ff;
         }
         
-        /* HEADER : Détaché du fond par une couleur plus sombre */
+        /* Header & Hero Gradient */
         header {
-            background: #3c36a3; /* Violet plus profond pour casser l'uniformité */
+            background: linear-gradient(135deg, #4a51e0 0%, #764ba2 100%);
             color: white;
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         nav {
@@ -48,36 +48,44 @@
             padding: 0 20px;
         }
         
-        .logo { font-size: 20px; font-weight: 800; color: white; text-decoration: none; }
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            text-decoration: none;
+            color: white;
+        }
+        
         nav ul { list-style: none; display: flex; gap: 25px; }
-        nav a { color: white; text-decoration: none; font-weight: 600; opacity: 0.85; transition: 0.3s; }
+        nav a { color: white; text-decoration: none; font-weight: 600; opacity: 0.9; }
         nav a:hover { opacity: 1; }
         
-        /* HERO / TOGGLE AREA */
         .hero {
             background: linear-gradient(135deg, #4a51e0 0%, #764ba2 100%);
             color: white;
-            padding: 60px 20px 100px;
+            padding: 80px 20px 100px;
             text-align: center;
         }
         
-        .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 10px; }
-        
+        .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 15px; }
+        .hero p { font-size: 18px; opacity: 0.9; margin-bottom: 30px; }
+
+        /* Billing Toggle Design */
         .billing-toggle {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
-            margin-top: 25px;
+            margin-top: 20px;
         }
         
         .toggle-switch {
             position: relative;
-            width: 54px; height: 28px;
-            background: rgba(255,255,255,0.2);
+            width: 54px;
+            height: 28px;
+            background: rgba(255,255,255,0.25);
             border-radius: 30px;
             cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.4);
+            border: 1px solid rgba(255,255,255,0.3);
         }
         
         .toggle-switch::after {
@@ -93,62 +101,54 @@
         .toggle-switch.yearly::after { transform: translateX(26px); }
         .savings-badge { background: #48bb78; color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 800; }
 
-        /* PRICING GRID */
-        .container { max-width: 1200px; margin: -60px auto 0; padding: 0 20px 80px; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; align-items: stretch; }
+        /* Pricing Grid */
+        .container { max-width: 1200px; margin: -50px auto 0; padding: 0 20px 80px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         
         .pricing-card {
             background: white;
             border-radius: 20px;
-            padding: 45px 35px;
+            padding: 40px 30px;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s ease-in-out;
             display: flex;
             flex-direction: column;
             border: 1px solid #edf2f7;
-            transition: transform 0.3s;
         }
         
-        .pricing-card:hover { transform: translateY(-5px); }
-
-        /* VIP CARD : Mise en avant maximale */
+        .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(74, 81, 224, 0.1); }
+        
         .pricing-card.popular {
-            border: 3px solid #4a51e0;
+            background: #ffffff;
+            border: 2px solid #4a51e0;
             position: relative;
-            box-shadow: 0 20px 50px rgba(74, 81, 224, 0.15);
+            transform: scale(1.05);
+            z-index: 5;
         }
 
         .popular-badge {
             position: absolute;
-            top: -18px; left: 50%;
+            top: -15px; left: 50%;
             transform: translateX(-50%);
             background: #ff9800;
             color: white;
-            padding: 6px 25px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 900;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
             box-shadow: 0 4px 10px rgba(255,152,0,0.3);
         }
 
-        .plan-name { font-size: 14px; font-weight: 800; color: #718096; text-transform: uppercase; margin-bottom: 15px; }
-        
-        /* PRIX HARMONISÉS : Gros et Noir pour tout le monde */
-        .plan-price { 
-            font-size: 52px; /* Taille augmentée pour VIP aussi */
-            font-weight: 800; 
-            color: #1a202c; 
-            margin: 10px 0; 
-            letter-spacing: -2px; 
-        }
-        
-        .plan-price span { font-size: 18px; color: #a0aec0; font-weight: 500; letter-spacing: 0; }
+        .plan-name { font-size: 14px; font-weight: 800; color: #718096; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .plan-price { font-size: 48px; font-weight: 800; color: #1a202c; margin: 10px 0; letter-spacing: -1px; }
+        .plan-price span { font-size: 16px; color: #a0aec0; font-weight: 500; }
+        .plan-price .price-value { font-size: 52px; font-weight: 800; color: #1a202c; letter-spacing: -2px; }
+        .plan-description { color: #718096; font-size: 14px; margin-bottom: 30px; height: 40px; }
 
-        .plan-description { color: #718096; font-size: 15px; margin-bottom: 35px; min-height: 45px; }
-
-        .features-list { list-style: none; text-align: left; margin-bottom: 40px; flex-grow: 1; border-top: 1px solid #f1f5f9; padding-top: 25px; }
+        .features-list { list-style: none; text-align: left; margin-bottom: 30px; flex-grow: 1; }
         .features-list li { padding: 10px 0; font-size: 15px; color: #4a5568; display: flex; align-items: center; }
-        .features-list li::before { content: "✓"; color: #48bb78; font-weight: 900; margin-right: 12px; font-size: 18px; }
+        .features-list li::before { content: "✓"; color: #48bb78; font-weight: 900; margin-right: 12px; }
         .features-list li.disabled { color: #cbd5e0; }
         .features-list li.disabled::before { content: "×"; color: #cbd5e0; }
 
@@ -156,31 +156,39 @@
             background: #4a51e0;
             color: white;
             border: none;
-            padding: 18px;
-            border-radius: 14px;
+            padding: 16px;
+            border-radius: 12px;
             font-weight: 700;
-            font-size: 17px;
+            font-size: 16px;
             cursor: pointer;
             transition: 0.3s;
             text-decoration: none;
         }
         
-        .cta-button:hover { background: #373dbd; box-shadow: 0 10px 25px rgba(74, 81, 224, 0.25); }
-        .pricing-card.popular .cta-button { background: #4a51e0; }
+        .cta-button:hover { background: #373dbd; box-shadow: 0 8px 20px rgba(74, 81, 224, 0.3); }
 
-        .trust-info { margin-top: 20px; font-size: 12px; color: #a0aec0; font-weight: 600; }
+        /* Trust Icons under buttons */
+        .trust-icons { margin-top: 15px; font-size: 11px; color: #a0aec0; font-weight: 600; display: flex; justify-content: center; gap: 8px; align-items: center; }
+        .trust-icons img { opacity: 0.5; height: 14px; }
 
-        /* FOOTER & LOADING */
+        /* FAQ */
+        .faq-section { background: white; padding: 80px 20px; }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: #f8fafc; padding: 25px; border-radius: 12px; margin-bottom: 15px; border: 1px solid #edf2f7; }
+        .faq-question { font-weight: 700; margin-bottom: 10px; color: #2d3748; }
+        .faq-answer { color: #718096; font-size: 15px; }
+
         footer { background: #1a202c; color: #a0aec0; padding: 40px 20px; text-align: center; }
         footer a { color: white; text-decoration: none; margin: 0 10px; }
+
         .loading { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center; color: white; }
         .spinner { border: 4px solid rgba(255,255,255,0.1); border-top: 4px solid white; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 20px; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 32px; }
-            .container { margin-top: -40px; }
-            .plan-price { font-size: 44px; }
+            .pricing-card.popular { transform: scale(1); margin: 20px 0; }
+            .container { margin-top: -30px; }
         }
     </style>
 </head>
@@ -199,13 +207,13 @@
     </header>
 
     <section class="hero">
-        <h1>Choisissez votre plan</h1>
-        <p>Maîtrisez votre fiscalité avec ComptaFlow-by-MeeTempo.</p>
+        <h1>Un plan pour chaque étape</h1>
+        <p>Maîtrisez votre fiscalité sans effort et en toute conformité.</p>
         
         <div class="billing-toggle">
-            <span id="monthly-label" style="font-weight: 700;">Mensuel</span>
+            <span id="monthly-label" style="font-weight: 600;">Mensuel</span>
             <div class="toggle-switch" id="billing-switch" onclick="toggleBilling()"></div>
-            <span id="yearly-label" style="opacity: 0.6; font-weight: 700;">Annuel</span>
+            <span id="yearly-label" style="opacity: 0.6; font-weight: 600;">Annuel</span>
             <span class="savings-badge">4 MOIS OFFERTS</span>
         </div>
     </section>
@@ -225,7 +233,7 @@
                     <li class="disabled">Liasse fiscale 2031</li>
                 </ul>
                 <button class="cta-button" onclick="choosePlan('STANDARD')">Choisir Standard</button>
-                <div class="trust-info">Sans engagement</div>
+                <div class="trust-icons">🔒 Paiement sécurisé par Stripe</div>
             </div>
 
             <div class="pricing-card">
@@ -241,43 +249,55 @@
                     <li class="disabled">Liasse fiscale 2031</li>
                 </ul>
                 <button class="cta-button" onclick="choosePlan('PLUS')">Choisir Plus</button>
-                <div class="trust-info">Support inclus</div>
+                <div class="trust-icons">💳 CB, Visa, Mastercard</div>
             </div>
 
             <div class="pricing-card popular" id="vip-card">
                 <div class="popular-badge">RECOMMANDÉ</div>
                 <div class="plan-name" id="vip-name">VIP Mensuel</div>
-                <div class="plan-price">
-                    <span id="vip-price">19,90€</span><span id="vip-period">/mois</span>
-                </div>
-                <div class="plan-description" id="vip-description">
-                    L'automatisation fiscale complète
-                </div>
+                <div class="plan-price"><span class="price-value" id="vip-price">19,90€</span><span id="vip-period">/mois</span></div>
+                <div class="plan-description" id="vip-description">L'automatisation fiscale complète</div>
                 <ul class="features-list">
                     <li>Toutes les fonctionnalités</li>
                     <li><strong>Liasse fiscale 2031</strong></li>
                     <li>Sauvegardes auto</li>
                     <li>Support prioritaire 7j/7</li>
                 </ul>
-                <button class="cta-button" id="vip-button" onclick="choosePlan('VIP_MONTHLY')">
-                    Choisir VIP
-                </button>
-                <div class="trust-info" style="color: #4a51e0;">✨ Sérénité fiscale totale</div>
+                <button class="cta-button" id="vip-button" onclick="choosePlan('VIP_MONTHLY')">Choisir VIP</button>
+                <div class="trust-icons">✨ Sans engagement</div>
             </div>
         </div>
+
+        <div style="text-align: center; margin-top: 40px; color: #718096; font-size: 14px;">
+            <p>🛡️ 100% Satisfait ou Remboursé | Conforme normes DGFiP 2026</p>
+        </div>
     </div>
+
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2>Questions fréquentes</h2><br>
+            <div class="faq-item">
+                <div class="faq-question">Puis-je changer de plan ou annuler ?</div>
+                <div class="faq-answer">Oui, ComptaFlow-by-MeeTempo est sans engagement. Vous pouvez upgrader ou résilier en un clic depuis votre espace client.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Les paiements sont-ils sécurisés ?</div>
+                <div class="faq-answer">Absolument. Nous utilisons Stripe, le leader mondial du paiement en ligne. Vos données bancaires ne transitent jamais par nos serveurs.</div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2026 ComptaFlow-by-MeeTempo</p>
         <p style="margin-top:10px">
-            <a href="mailto:support@meetempo.com">Contact</a> | <a href="cgv.html">CGV</a>
+            <a href="mailto:support@meetempo.com">Contact</a> | <a href="cgv.html">CGV</a> | <a href="confidentialite.html">Confidentialité</a>
         </p>
     </footer>
 
     <div class="loading" id="loading">
         <div style="text-align: center;">
             <div class="spinner"></div>
-            <p>Redirection Stripe...</p>
+            <p>Redirection vers Stripe...</p>
         </div>
     </div>
 
