@@ -517,6 +517,25 @@
             text-decoration: underline;
         }
         
+        /* === BADGE ESSAI GRATUIT === */
+        .trial-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 30px rgba(16, 185, 129, 0.6); }
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -556,6 +575,9 @@
     <section class="hero">
         <h1>Clôture Comptable : Arrivez préparé</h1>
         <p>Janvier-Mars : la période de clôture. Organisez vos écritures avec ComptaFlow-by-MeeTempo et facilitez le travail de votre expert-comptable.</p>
+        
+        <div class="trial-badge">🎁 30 jours d'essai gratuit - Sans engagement</div>
+        
         <div class="hero-buttons">
             <a href="https://wordpress.org/plugins/comptaflow-by-meetempo/" class="cta-button" target="_blank">Essayer gratuitement</a>
             <a href="#comment-ca-marche" class="cta-button secondary">Comment ça marche ↓</a>
@@ -677,6 +699,9 @@
     <section class="cta-section">
         <h2>Préparez sereinement votre clôture</h2>
         <p>Commencez à organiser vos écritures dès maintenant avec ComptaFlow-by-MeeTempo.</p>
+        
+        <div class="trial-badge">🎁 30 jours d'essai gratuit - Sans engagement</div>
+        
         <div class="cta-buttons">
             <a href="https://wordpress.org/plugins/comptaflow-by-meetempo/" class="cta-button" target="_blank">Essayer gratuitement</a>
             <a href="tarifs.html" class="cta-button secondary">Voir les options Pro →</a>
