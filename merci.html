@@ -10,6 +10,16 @@
     
     <!-- Canonical -->
     <link rel="canonical" href="https://comptaflow.meetempo.com/merci.html">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LG929VFSC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5LG929VFSC');
+    </script>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -228,9 +238,9 @@
             </div>
 
             <div class="actions">
-                <a href="https://github.com/comptaflow-pro/plugin/releases/latest/download/compta-by-meetempo.zip" class="btn btn-primary">
-                    📥 Télécharger le plugin
-                </a>
+                <a href="https://github.com/comptaflow-pro/plugin/releases/latest/download/compta-by-meetempo.zip" class="btn btn-primary" onclick="gtag('event', 'download', { 'event_category': 'plugin_pro', 'event_label': 'merci_page' });">
+    📥 Télécharger le plugin
+</a>
                 <a href="mon-compte.html" class="btn btn-secondary">
                     👤 Mon compte
                 </a>
