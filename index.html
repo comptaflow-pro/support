@@ -48,6 +48,66 @@
         .faq-answer { max-height: 0; overflow: hidden; transition: 0.3s; color: #718096; }
         .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 20px; }
         footer { background: #ffffff; padding: 40px 20px; text-align: center; border-top: 1px solid #edf2f7; color: #718096; }
+        
+        /* === BADGE ESSAI GRATUIT === */
+        .trial-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 30px rgba(16, 185, 129, 0.6); }
+        }
+        
+        .trust-highlight {
+            color: #10b981;
+            font-weight: 700;
+        }
+        
+        /* === ANIMATIONS HOVER === */
+        .benefit-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(74, 81, 224, 0.15);
+        }
+        
+        .screenshot-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .screenshot-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+        
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -75%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: skewX(-25deg);
+            transition: 0.5s;
+        }
+        .cta-button:hover::after {
+            left: 125%;
+        }
     </style>
 </head>
 <body>
@@ -66,6 +126,9 @@
     <section class="hero">
         <h1>Votre Comptabilité Professionnelle<br>sur WordPress</h1>
         <p>Gérez vos recettes, dépenses, TVA (CA3/CA12) et exportez vos fichiers FEC conformes DGFiP avec ComptaFlow-by-MeeTempo.</p>
+        
+        <div class="trial-badge">🎁 30 jours d'essai gratuit - Sans engagement</div>
+        
         <div class="hero-buttons">
             <a href="tarifs.html" class="cta-button">Découvrir les plans Pro →</a>
             <a href="https://wordpress.org/plugins/comptaflow-by-meetempo/" class="cta-button secondary" target="_blank">Plugin Gratuit (WP.org)</a>
@@ -78,6 +141,7 @@
             <div>✓ Export FEC Natif</div>
             <div>✓ Support en Français</div>
             <div>✓ Hébergé en France (RGPD)</div>
+            <div class="trust-highlight">🎁 30 jours d'essai gratuit</div>
         </div>
     </div>
 
