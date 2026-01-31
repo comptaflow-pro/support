@@ -378,6 +378,37 @@
             color: #d48806;
         }
         
+        /* === BADGE ESSAI GRATUIT === */
+        .trial-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        .trial-badge-light {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 30px rgba(16, 185, 129, 0.6); }
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             header h1 { font-size: 32px; }
@@ -393,6 +424,7 @@
     <header>
         <h1>📚 Documentation ComptaFlow-by-MeeTempo</h1>
         <p>Guide complet pour maîtriser votre comptabilité en toute autonomie</p>
+        <div class="trial-badge">🎁 30 jours d'essai gratuit - Sans engagement</div>
     </header>
 
     <!-- Navigation -->
@@ -717,6 +749,7 @@
         <div class="cta-box">
             <h3>🚀 Prêt à simplifier votre comptabilité ?</h3>
             <p>Découvrez nos offres et choisissez le plan adapté à vos besoins</p>
+            <div class="trial-badge-light">🎁 30 jours d'essai gratuit - Sans engagement</div>
             <a href="tarifs.html" class="cta-button">Voir les tarifs →</a>
         </div>
 
