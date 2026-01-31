@@ -185,6 +185,19 @@
         .spinner { border: 4px solid rgba(255,255,255,0.1); border-top: 4px solid white; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 20px; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
+        /* === BADGE ESSAI GRATUIT CARTES === */
+        .trial-badge-card {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3);
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 32px; }
             .pricing-card.popular { transform: scale(1); margin: 20px 0; }
@@ -224,6 +237,7 @@
                 <div class="plan-name">Standard</div>
                 <div class="plan-price">9,99€<span>/mois</span></div>
                 <div class="plan-description">Essentiel pour votre gestion quotidienne</div>
+                <div class="trial-badge-card">🎁 30 jours d'essai gratuit</div>
                 <ul class="features-list">
                     <li>200 transactions/mois</li>
                     <li>Recettes & Dépenses</li>
@@ -240,6 +254,7 @@
                 <div class="plan-name">Plus</div>
                 <div class="plan-price">13,99€<span>/mois</span></div>
                 <div class="plan-description">Le choix idéal pour les pros exigeants</div>
+                <div class="trial-badge-card">🎁 30 jours d'essai gratuit</div>
                 <ul class="features-list">
                     <li>Transactions illimitées</li>
                     <li>Tout Standard +</li>
@@ -257,6 +272,7 @@
                 <div class="plan-name" id="vip-name">VIP Mensuel</div>
                 <div class="plan-price"><span class="price-value" id="vip-price">19,90€</span><span id="vip-period">/mois</span></div>
                 <div class="plan-description" id="vip-description">L'automatisation fiscale complète</div>
+                <div class="trial-badge-card">🎁 30 jours d'essai gratuit</div>
                 <ul class="features-list">
                     <li>Toutes les fonctionnalités</li>
                     <li><strong>Liasse fiscale 2031</strong></li>
