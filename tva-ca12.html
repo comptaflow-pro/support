@@ -464,6 +464,25 @@
             text-decoration: underline;
         }
         
+        /* === BADGE ESSAI GRATUIT === */
+        .trial-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 30px rgba(16, 185, 129, 0.6); }
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -508,6 +527,9 @@
     <section class="hero">
         <h1>TVA CA12 : Le casse-tête enfin résolu</h1>
         <p>Calcul des acomptes, régularisation annuelle, lignes incompréhensibles... Avec ComptaFlow-by-MeeTempo, laissez-vous simplement guider.</p>
+        
+        <div class="trial-badge">🎁 30 jours d'essai gratuit - Sans engagement</div>
+        
         <div class="hero-buttons">
             <a href="https://wordpress.org/plugins/comptaflow-by-meetempo/" class="cta-button" target="_blank">Télécharger ComptaFlow-by-MeeTempo</a>
             <a href="#solution" class="cta-button secondary">Voir comment ça marche ↓</a>
@@ -633,6 +655,9 @@
     <section class="cta-section">
         <h2>Fini le stress de la TVA CA12</h2>
         <p>Laissez ComptaFlow-by-MeeTempo faire les calculs, vous n'avez qu'à valider.</p>
+        
+        <div class="trial-badge">🎁 30 jours d'essai gratuit - Sans engagement</div>
+        
         <div class="cta-buttons">
             <a href="https://wordpress.org/plugins/comptaflow-by-meetempo/" class="cta-button" target="_blank">Télécharger gratuitement</a>
             <a href="tarifs.html" class="cta-button secondary">Voir les tarifs Pro →</a>
