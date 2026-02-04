@@ -432,10 +432,13 @@
         <div class="container">
             <a href="#installation" class="active">Installation</a>
             <a href="#configuration">Configuration</a>
+            <a href="#facturation">Facturation</a>
             <a href="#fonctionnalites">Fonctionnalités</a>
+            <a href="#backup">Backup</a>
             <a href="#exports">Exports</a>
             <a href="#tva">TVA</a>
             <a href="#liasse">Liasse 2031</a>
+            <a href="#relances">Relances</a>
             <a href="#faq">FAQ</a>
         </div>
     </nav>
@@ -534,6 +537,100 @@
             <div class="alert alert-warning">
                 <strong>⚠️ Important</strong> : Ces paramètres impactent la génération des déclarations fiscales. Vérifiez-les auprès de votre expert-comptable si vous avez un doute.
             </div>
+
+            <h3><span class="icon">🔍</span>API SIRET - Remplissage automatique</h3>
+
+            <p><strong>Gagnez du temps grâce à l'auto-complétion :</strong></p>
+
+            <div class="screenshot-grid">
+                <div class="screenshot">
+                    <img src="images/16-siret-api.PNG" alt="API SIRET auto-remplissage">
+                    <div class="screenshot-caption">Recherche SIRET automatique</div>
+                </div>
+            </div>
+
+            <p>Entrez simplement le numéro SIRET (14 chiffres) et cliquez sur <strong>🔍 Rechercher</strong>. Les informations sont récupérées automatiquement depuis la base officielle entreprise.data.gouv.fr :</p>
+
+            <ul style="line-height: 2; margin: 16px 0 16px 20px;">
+                <li>Raison sociale</li>
+                <li>Adresse complète</li>
+                <li>Code postal et ville</li>
+                <li>Code NAF</li>
+                <li>N° TVA intracommunautaire (calculé automatiquement)</li>
+            </ul>
+
+            <div class="alert alert-success">
+                <strong>✅ Disponible partout</strong> : API SIRET fonctionne dans les Paramètres entreprise ET dans les fiches clients.
+            </div>
+            </section>
+
+        <!-- Facturation -->
+        <section id="facturation">
+            <h2>📄 Facturation Professionnelle</h2>
+            
+            <div class="alert alert-info">
+                <strong>🔒 Fonctionnalité réservée aux plans PLUS et VIP</strong>
+            </div>
+            
+            <h3><span class="icon">📋</span>Factures, Devis & Avoirs</h3>
+            
+            <p><strong>Créez des documents professionnels en quelques clics :</strong></p>
+            
+            <div class="screenshot-grid">
+                <div class="screenshot">
+                    <img src="images/11-invoices-list.PNG" alt="Liste des factures">
+                    <div class="screenshot-caption">Liste des factures</div>
+                </div>
+                <div class="screenshot">
+                    <img src="images/12-invoice-form.PNG" alt="Création facture">
+                    <div class="screenshot-caption">Création avec comptes PCG</div>
+                </div>
+            </div>
+            
+            <div class="features-list">
+                <div class="feature-card">
+                    <h4>📄 <strong>Factures</strong></h4>
+                    <p>Numérotation automatique, calcul TVA, génération PDF professionnelle, suivi des paiements.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📝 <strong>Devis</strong></h4>
+                    <p>Création rapide, validité paramétrable, conversion en facture en 1 clic.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>↩️ <strong>Avoirs</strong></h4>
+                    <p>Avoir partiel ou total sur facture existante, génération des écritures comptables automatique.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>👥 <strong>Gestion Clients</strong></h4>
+                    <p>Fiche client complète, historique factures/devis, API SIRET pour auto-remplissage.</p>
+                </div>
+            </div>
+            
+            <div class="screenshot-grid">
+                <div class="screenshot">
+                    <img src="images/13-quotes-list.PNG" alt="Liste des devis">
+                    <div class="screenshot-caption">Gestion des devis</div>
+                </div>
+                <div class="screenshot">
+                    <img src="images/14-credit-note.PNG" alt="Création avoir">
+                    <div class="screenshot-caption">Création d'un avoir</div>
+                </div>
+            </div>
+            
+            <p><strong>Fonctionnalités incluses :</strong></p>
+            <ul style="line-height: 2; margin: 16px 0 16px 20px;">
+                <li>Numérotation automatique (FAC-2026-001, DEV-2026-001, AV-2026-001)</li>
+                <li>Calcul automatique TVA selon taux configurés</li>
+                <li>Génération PDF avec logo et mentions légales</li>
+                <li>Conversion Devis → Facture en 1 clic</li>
+                <li>Avoir partiel (lignes sélectionnées) ou total</li>
+                <li>Écritures comptables générées automatiquement</li>
+                <li>Suivi statuts : Brouillon, En attente, Payée, En retard</li>
+            </ul>
+            
+            <div class="alert alert-success">
+                <strong>✅ Conforme aux normes françaises</strong> : Mentions légales obligatoires, numérotation séquentielle, archivage sécurisé.
+            </div>
         </section>
 
         <!-- Fonctionnalités -->
@@ -618,6 +715,60 @@
                 <div class="feature-card">
                     <h4>👥 <strong>Collaboration</strong></h4>
                     <p>Invitez votre expert-comptable pour validation (plan VIP uniquement)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Backup -->
+        <section id="backup">
+            <h2>💾 Sauvegarde & Restauration</h2>
+            
+            <div class="alert alert-success">
+                <strong>✅ Disponible pour tous les plans</strong>
+            </div>
+            
+            <h3><span class="icon">📦</span>Protégez vos données comptables</h3>
+            
+            <div class="screenshot-grid">
+                <div class="screenshot">
+                    <img src="images/15-backup.PNG" alt="Interface de sauvegarde">
+                    <div class="screenshot-caption">Sauvegarde complète en 1 clic</div>
+                </div>
+            </div>
+            
+            <p><strong>Fonctionnalités :</strong></p>
+            <ul style="line-height: 2; margin: 16px 0 16px 20px;">
+                <li><strong>Export SQL complet</strong> : Toutes vos tables (comptes, écritures, factures, clients...)</li>
+                <li><strong>Statistiques</strong> : Nombre de tables, enregistrements et taille estimée</li>
+                <li><strong>Téléchargement</strong> : Fichier .sql prêt à conserver</li>
+                <li><strong>Restauration</strong> : Réimportez vos données en cas de besoin</li>
+            </ul>
+            
+            <div class="alert alert-warning">
+                <strong>⚠️ Recommandations</strong> :
+                <ul style="margin: 12px 0 0 20px;">
+                    <li>Sauvegardez <strong>avant chaque mise à jour</strong> du plugin</li>
+                    <li>Sauvegardez au minimum <strong>chaque fin de mois</strong></li>
+                    <li>Conservez vos sauvegardes sur <strong>plusieurs supports</strong> (Cloud, disque dur, clé USB)</li>
+                </ul>
+            </div>
+            
+            <h3><span class="icon">🔄</span>Restauration</h3>
+            
+            <p>En cas de problème, restaurez vos données en quelques clics :</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <h4>Sélectionnez votre fichier .sql</h4>
+                    <p>Choisissez le fichier de sauvegarde que vous souhaitez restaurer.</p>
+                </div>
+                <div class="step">
+                    <h4>Confirmez l'opération</h4>
+                    <p>Cochez la case de confirmation (cette action écrase les données actuelles).</p>
+                </div>
+                <div class="step">
+                    <h4>Restauration automatique</h4>
+                    <p>Vos données sont restaurées instantanément. Vérifiez le résultat dans le tableau de bord.</p>
                 </div>
             </div>
         </section>
@@ -743,6 +894,52 @@
                 <li>✅ Économie de plusieurs heures de travail</li>
                 <li>✅ Réduction des erreurs de saisie</li>
             </ul>
+        </section>
+
+        <!-- Relances -->
+        <section id="relances">
+            <h2>📧 Relances Clients Automatiques</h2>
+            
+            <div class="alert alert-info">
+                <strong>👑 Fonctionnalité exclusive au plan VIP</strong>
+            </div>
+            
+            <h3><span class="icon">⏰</span>Ne laissez plus d'impayés traîner</h3>
+            
+            <p><strong>Automatisez vos relances et récupérez vos paiements plus rapidement :</strong></p>
+            
+            <div class="features-list">
+                <div class="feature-card">
+                    <h4>📧 <strong>Relances Email</strong></h4>
+                    <p>Templates personnalisables, envoi automatique selon vos délais configurés.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📱 <strong>Relances WhatsApp</strong></h4>
+                    <p>Message pré-rempli avec lien vers la facture PDF, envoi en 1 clic.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚙️ <strong>Paramètres flexibles</strong></h4>
+                    <p>Délai avant 1ère relance, intervalle entre relances, nombre max de relances.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>👤 <strong>Préférence client</strong></h4>
+                    <p>Chaque client peut avoir sa préférence : Email, WhatsApp, ou les deux.</p>
+                </div>
+            </div>
+            
+            <p><strong>Variables disponibles dans les templates :</strong></p>
+            <ul style="line-height: 2; margin: 16px 0 16px 20px;">
+                <li><code>{client}</code> - Nom du client</li>
+                <li><code>{facture}</code> - Numéro de facture</li>
+                <li><code>{montant}</code> - Montant TTC</li>
+                <li><code>{echeance}</code> - Date d'échéance</li>
+                <li><code>{entreprise}</code> - Votre raison sociale</li>
+                <li><code>{lien_pdf}</code> - Lien direct vers la facture PDF</li>
+            </ul>
+            
+            <div class="alert alert-success">
+                <strong>✅ Résultat</strong> : Nos utilisateurs VIP réduisent leurs délais de paiement de 40% en moyenne.
+            </div>
         </section>
 
         <!-- CTA Conversion -->
