@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LG929VFSC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5LG929VFSC');
+    </script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="128x128" href="images/icon-128x128.png">
+    <link rel="apple-touch-icon" href="images/icon-128x128.png">
+    
+    <!-- SEO Meta -->
+    <title>Plugin Facturation WordPress : Factures, Devis, Avoirs | ComptaFlow-by-MeeTempo</title>
+    <meta name="description" content="Créez factures, devis et avoirs professionnels directement dans WordPress. Plugin français conforme, génération PDF, conversion devis→facture en 1 clic. Essai gratuit 30 jours.">
+    <meta name="keywords" content="plugin facturation wordpress, facture wordpress, devis wordpress, avoir wordpress, logiciel facturation freelance, facturation TPE, plugin devis gratuit">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Plugin Facturation WordPress : Factures, Devis, Avoirs | ComptaFlow-by-MeeTempo">
+    <meta property="og:description" content="Créez factures, devis et avoirs professionnels directement dans WordPress. Conforme aux normes françaises, génération PDF automatique.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://comptaflow.meetempo.com/facturation-wordpress.html">
+    <meta property="og:image" content="https://comptaflow.meetempo.com/images/11-invoices-list.PNG">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Plugin Facturation WordPress : Factures, Devis, Avoirs">
+    <meta name="twitter:description" content="Créez factures, devis et avoirs professionnels directement dans WordPress. Essai gratuit 30 jours.">
+    <meta name="twitter:image" content="https://comptaflow.meetempo.com/images/11-invoices-list.PNG">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://comptaflow.meetempo.com/facturation-wordpress.html">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Plugin Facturation WordPress : Factures, Devis, Avoirs",
+        "description": "Guide complet pour créer des factures, devis et avoirs professionnels dans WordPress avec ComptaFlow-by-MeeTempo",
+        "author": {
+            "@type": "Organization",
+            "name": "MeeTempo"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "ComptaFlow-by-MeeTempo"
+        },
+        "datePublished": "2026-02-05",
+        "image": "https://comptaflow.meetempo.com/images/11-invoices-list.PNG"
+    }
+    </script>
+    
+    <!-- Schema.org FAQ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Peut-on créer des factures conformes avec WordPress ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui, avec ComptaFlow-by-MeeTempo vous créez des factures 100% conformes aux normes françaises : mentions légales obligatoires, numérotation séquentielle, TVA, génération PDF professionnelle."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quelle différence entre ComptaFlow et un logiciel SaaS de facturation ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ComptaFlow est intégré à WordPress, vos données restent chez vous (RGPD), pas de dépendance à un service externe, et il combine facturation + comptabilité complète en un seul outil."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Peut-on convertir un devis en facture ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui, en 1 clic ! Quand votre client accepte le devis, cliquez sur 'Convertir en facture' et ComptaFlow génère automatiquement la facture avec toutes les informations du devis."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment créer un avoir sur une facture ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Depuis la facture concernée, cliquez sur 'Créer un avoir'. Vous pouvez créer un avoir total ou partiel (en sélectionnant les lignes à rembourser). L'écriture comptable est générée automatiquement."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Les écritures comptables sont-elles générées automatiquement ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui, chaque facture, devis accepté et avoir génère automatiquement les écritures comptables conformes au Plan Comptable Général (PCG). Votre comptabilité est toujours à jour."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Schema.org Product -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ComptaFlow-by-MeeTempo",
+        "operatingSystem": "WordPress",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "13.99",
+            "priceCurrency": "EUR"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "1"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #ffffff;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        /* Section Title */
+        .section-title {
+            font-size: 32px;
+            color: #2d3748;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            background: #fff5f5;
+            border-left: 4px solid #e53e3e;
+            padding: 30px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 40px;
+        }
+        
+        .problem-section h2 {
+            color: #c53030;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .problem-list {
+            list-style: none;
+        }
+        
+        .problem-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .problem-list li::before {
+            content: "😰";
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Solution Section */
+        .solution-section {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 30px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 40px;
+        }
+        
+        .solution-section h2 {
+            color: #276749;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .solution-list {
+            list-style: none;
+        }
+        
+        .solution-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .solution-list li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Screenshot Section */
+        .screenshot-section {
+            margin: 60px 0;
+            text-align: center;
+        }
+        
+        .screenshot-section h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #2d3748;
+        }
+        
+        .screenshot-container {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .screenshot-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .screenshot-caption {
+            padding: 15px;
+            background: #f7fafc;
+            color: #4a5568;
+            font-size: 14px;
+        }
+        
+        /* Screenshot Grid */
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .screenshot-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .screenshot-item .caption {
+            padding: 15px;
+            background: #f7fafc;
+            color: #2d3748;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        /* Features Grid */
+        .features-section {
+            padding: 60px 20px;
+            background: #f7fafc;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+        
+        .feature-card p {
+            color: #718096;
+            font-size: 15px;
+        }
+        
+        /* Comparison Table */
+        .comparison-section {
+            margin: 60px 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f7fafc;
+        }
+        
+        .comparison-table .highlight {
+            background: #f0fff4;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 20px;
+            background: #f7fafc;
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #2d3748;
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            padding: 20px 25px;
+            font-weight: bold;
+            color: #2d3748;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: #f7fafc;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: #667eea;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 25px 20px;
+            max-height: 300px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* === BADGE ESSAI GRATUIT === */
+        .trial-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 30px rgba(16, 185, 129, 0.6); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .comparison-table {
+                font-size: 14px;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">ComptaFlow-by-MeeTempo</a></div>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="mon-compte.html">Mon compte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Factures & Devis Pro<br>directement dans WordPress</h1>
+        <p>Créez factures, devis et avoirs professionnels conformes aux normes françaises. PDF automatique, écritures comptables générées, conversion devis→facture en 1 clic.</p>
+        
+        <div class="trial-badge">🎁 30 jours d'essai gratuit - Sans engagement</div>
+        
+        <div class="hero-buttons">
+            <a href="tarifs.html" class="cta-button">Démarrer l'essai gratuit →</a>
+            <a href="#solution" class="cta-button secondary">Voir comment ça marche ↓</a>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <div class="container">
+        
+        <!-- Problem Section -->
+        <div class="problem-section">
+            <h2>😰 La facturation, un casse-tête pour les freelances</h2>
+            <ul class="problem-list">
+                <li>Excel pour les factures = pas conforme, pas pro</li>
+                <li>Logiciels SaaS (Henrri, Facture.net) = encore un abonnement, données ailleurs</li>
+                <li>Numérotation manuelle = risque d'erreur, trous de séquence</li>
+                <li>Créer un avoir = recopier à la main, recalculer</li>
+                <li>Comptabilité séparée = double saisie, perte de temps</li>
+            </ul>
+        </div>
+        
+        <!-- Solution Section -->
+        <div class="solution-section" id="solution">
+            <h2>✅ Avec ComptaFlow-by-MeeTempo, tout est intégré</h2>
+            <ul class="solution-list">
+                <li>Factures, devis, avoirs dans votre WordPress</li>
+                <li>Vos données restent chez vous (RGPD)</li>
+                <li>Numérotation automatique et séquentielle</li>
+                <li>Conversion Devis → Facture en 1 clic</li>
+                <li>Avoir partiel ou total en 2 clics</li>
+                <li>Écritures comptables générées automatiquement</li>
+                <li>PDF professionnel avec votre logo</li>
+            </ul>
+        </div>
+        
+        <!-- Screenshot Factures -->
+        <div class="screenshot-section">
+            <h2>📄 Gérez toutes vos factures en un coup d'œil</h2>
+            <div class="screenshot-container">
+                <img src="images/11-invoices-list.PNG" alt="Liste des factures WordPress - ComptaFlow-by-MeeTempo">
+            </div>
+            <p class="screenshot-caption">Interface ComptaFlow-by-MeeTempo : liste des factures avec statuts, montants et actions rapides</p>
+        </div>
+        
+        <!-- Screenshot Grid -->
+        <div class="screenshot-grid">
+            <div class="screenshot-item">
+                <img src="images/12-invoice-form.PNG" alt="Création facture WordPress avec comptes PCG">
+                <div class="caption">📝 Création avec comptes PCG</div>
+            </div>
+            <div class="screenshot-item">
+                <img src="images/14-credit-note.PNG" alt="Création avoir sur facture WordPress">
+                <div class="caption">↩️ Avoir en quelques clics</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Features Section -->
+    <section class="features-section">
+        <h2 class="section-title">Tout ce dont vous avez besoin</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon">📄</div>
+                <h3>Factures conformes</h3>
+                <p>Mentions légales, numérotation séquentielle, TVA multi-taux, PDF professionnel.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">📝</div>
+                <h3>Devis → Facture</h3>
+                <p>Créez un devis, envoyez-le. Client OK ? Convertissez en facture en 1 clic.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">↩️</div>
+                <h3>Avoirs simplifiés</h3>
+                <p>Avoir total ou partiel sur facture existante. Écritures comptables auto.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">👥</div>
+                <h3>Gestion clients</h3>
+                <p>Fiche client complète, historique, API SIRET pour auto-remplissage.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">📊</div>
+                <h3>Comptabilité intégrée</h3>
+                <p>Chaque facture génère ses écritures. Export FEC conforme DGFiP.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">📧</div>
+                <h3>Relances auto (VIP)</h3>
+                <p>Email + WhatsApp automatiques pour récupérer vos impayés.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Comparison Table -->
+        <div class="comparison-section">
+            <h2 class="section-title">ComptaFlow vs autres solutions</h2>
+            <table class="comparison-table">
+                <tr>
+                    <th>Critère</th>
+                    <th>ComptaFlow</th>
+                    <th>Henrri / Facture.net</th>
+                    <th>Excel</th>
+                </tr>
+                <tr class="highlight">
+                    <td><strong>Prix</strong></td>
+                    <td><strong>À partir de 13,99€/mois</strong></td>
+                    <td>Gratuit limité ou 10-30€/mois</td>
+                    <td>Gratuit</td>
+                </tr>
+                <tr>
+                    <td><strong>Données</strong></td>
+                    <td>✅ Chez vous (WordPress)</td>
+                    <td>❌ Serveurs externes</td>
+                    <td>✅ Chez vous</td>
+                </tr>
+                <tr>
+                    <td><strong>Comptabilité intégrée</strong></td>
+                    <td>✅ Complète (FEC, TVA, Liasse)</td>
+                    <td>❌ Non ou basique</td>
+                    <td>❌ Non</td>
+                </tr>
+                <tr>
+                    <td><strong>Avoirs</strong></td>
+                    <td>✅ Partiel ou total</td>
+                    <td>⚠️ Basique</td>
+                    <td>❌ Manuel</td>
+                </tr>
+                <tr>
+                    <td><strong>Écritures auto</strong></td>
+                    <td>✅ Oui</td>
+                    <td>❌ Non</td>
+                    <td>❌ Non</td>
+                </tr>
+                <tr>
+                    <td><strong>Export FEC</strong></td>
+                    <td>✅ Conforme DGFiP</td>
+                    <td>❌ Non</td>
+                    <td>❌ Non</td>
+                </tr>
+                <tr class="highlight">
+                    <td><strong>RGPD</strong></td>
+                    <td>✅ 100% conforme</td>
+                    <td>⚠️ Données hébergées ailleurs</td>
+                    <td>✅ Conforme</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Screenshot Devis -->
+        <div class="screenshot-section">
+            <h2>📝 Devis professionnels en quelques clics</h2>
+            <div class="screenshot-container">
+                <img src="images/13-quotes-list.PNG" alt="Liste des devis WordPress - ComptaFlow-by-MeeTempo">
+            </div>
+            <p class="screenshot-caption">Suivi des devis : envoyés, acceptés, refusés, expirés. Conversion en facture instantanée.</p>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2>Questions fréquentes sur la facturation WordPress</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">Peut-on créer des factures conformes avec WordPress ?</div>
+                <div class="faq-answer">Oui, avec ComptaFlow-by-MeeTempo vous créez des factures 100% conformes aux normes françaises : mentions légales obligatoires, numérotation séquentielle, TVA multi-taux, génération PDF professionnelle avec votre logo.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Quelle différence avec un logiciel SaaS de facturation ?</div>
+                <div class="faq-answer">ComptaFlow est intégré à WordPress : vos données restent chez vous (RGPD), pas de dépendance à un service externe qui peut fermer ou augmenter ses prix. Et surtout, il combine facturation + comptabilité complète en un seul outil.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Peut-on convertir un devis en facture ?</div>
+                <div class="faq-answer">Oui, en 1 clic ! Quand votre client accepte le devis, cliquez sur "Convertir en facture". ComptaFlow génère automatiquement la facture avec toutes les informations du devis, numérotation correcte et écritures comptables.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Comment créer un avoir sur une facture ?</div>
+                <div class="faq-answer">Depuis la facture concernée, cliquez sur "Créer un avoir". Vous pouvez créer un avoir total ou partiel (en sélectionnant les lignes à rembourser). L'écriture comptable d'annulation est générée automatiquement.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Les écritures comptables sont-elles générées automatiquement ?</div>
+                <div class="faq-answer">Oui, chaque facture validée génère automatiquement les écritures comptables conformes au Plan Comptable Général (PCG). Votre comptabilité est toujours à jour, et l'export FEC est prêt pour votre expert-comptable ou le fisc.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">La facturation est incluse dans quel plan ?</div>
+                <div class="faq-answer">La facturation complète (Factures, Devis, Avoirs, Clients) est disponible dans les plans PLUS (13,99€/mois) et VIP (19,90€/mois). Le plan VIP ajoute les relances automatiques par email et WhatsApp.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Prêt à facturer comme un pro ?</h2>
+        <p>Rejoignez les entrepreneurs qui gagnent du temps chaque mois avec ComptaFlow-by-MeeTempo.</p>
+        
+        <div class="trial-badge">🎁 30 jours d'essai gratuit - Sans carte bancaire</div>
+        
+        <div class="cta-buttons">
+            <a href="tarifs.html" class="cta-button">Démarrer l'essai gratuit →</a>
+            <a href="documentation.html#facturation" class="cta-button secondary">Voir la documentation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ComptaFlow-by-MeeTempo - Tous droits réservés</p>
+        <p>
+            <a href="mailto:support@meetempo.com">Contact</a> | 
+            <a href="mentions-legales.html" rel="nofollow">Mentions légales</a> | 
+            <a href="cgv.html" rel="nofollow">CGV</a> |
+            <a href="confidentialite.html" rel="nofollow">Confidentialité</a>
+        </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
