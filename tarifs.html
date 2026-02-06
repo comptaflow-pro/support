@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tarifs ComptaFlow by MeeTempo. Plans Standard (9,99€), Plus (13,99€) et VIP (19,90€). Essai 30 jours gratuit. Plugin comptabilité WordPress pour freelances et TPE.">
+    <meta name="description" content="Tarifs ComptaFlow by MeeTempo. Plans Standard (9,99€), Plus (13,99€) et VIP (19,90€). Essai 30 jours gratuit sans carte bancaire. Plugin comptabilité WordPress pour freelances et TPE.">
 
     <!-- SEO & Indexation -->
 <meta name="robots" content="index, follow">
@@ -21,7 +21,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tarifs - ComptaFlow by MeeTempo | Plans Standard, Plus & VIP">
-<meta name="twitter:description" content="Plans Standard (9,99€), Plus (13,99€) et VIP (19,90€). Essai 30 jours gratuit. Plugin comptabilité WordPress.">
+<meta name="twitter:description" content="Plans Standard (9,99€), Plus (13,99€) et VIP (19,90€). Essai 30 jours gratuit sans CB. Plugin comptabilité WordPress.">
 <meta name="twitter:image" content="https://comptaflow.meetempo.com/images/1-dashboard-overview.PNG">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LG929VFSC"></script>
@@ -256,7 +256,7 @@
                 <div class="plan-name">Standard</div>
                 <div class="plan-price">9,99€<span>/mois</span></div>
                 <div class="plan-description">Essentiel pour votre gestion quotidienne</div>
-                <div class="trial-badge-card">🎁 30 jours d'essai gratuit</div>
+                <div class="trial-badge-card">🎁 30 jours gratuit — Sans CB, sans engagement</div>
                 <ul class="features-list">
                     <li>200 transactions/mois</li>
                     <li>Recettes & Dépenses</li>
@@ -267,15 +267,15 @@
                     <li class="disabled">Facturation (Factures, Devis)</li>
                     <li class="disabled">Gestion TVA automatique</li>
                 </ul>
-                <button class="cta-button" onclick="choosePlan('STANDARD')">Choisir Standard</button>
-                <div class="trust-icons">🔒 Paiement sécurisé par Stripe</div>
+                <button class="cta-button" onclick="choosePlan('STANDARD')">Essayer Standard gratuitement</button>
+                <div class="trust-icons">✅ Aucune carte bancaire requise</div>
             </div>
 
             <div class="pricing-card">
                 <div class="plan-name">Plus</div>
                 <div class="plan-price">13,99€<span>/mois</span></div>
                 <div class="plan-description">Le choix idéal pour les pros exigeants</div>
-                <div class="trial-badge-card">🎁 30 jours d'essai gratuit</div>
+                <div class="trial-badge-card">🎁 30 jours gratuit — Sans CB, sans engagement</div>
                 <ul class="features-list">
                     <li>Transactions illimitées</li>
                     <li>Tout Standard +</li>
@@ -285,8 +285,8 @@
                     <li class="disabled">Liasse fiscale 2031</li>
                     <li class="disabled">Relances clients</li>
                 </ul>
-                <button class="cta-button" onclick="choosePlan('PLUS')">Choisir Plus</button>
-                <div class="trust-icons">💳 CB, Visa, Mastercard</div>
+                <button class="cta-button" onclick="choosePlan('PLUS')">Essayer Plus gratuitement</button>
+                <div class="trust-icons">✅ Aucune carte bancaire requise</div>
             </div>
 
             <div class="pricing-card popular" id="vip-card">
@@ -294,7 +294,7 @@
                 <div class="plan-name" id="vip-name">VIP Mensuel</div>
                 <div class="plan-price"><span class="price-value" id="vip-price">19,90€</span><span id="vip-period">/mois</span></div>
                 <div class="plan-description" id="vip-description">L'automatisation fiscale complète</div>
-                <div class="trial-badge-card">🎁 30 jours d'essai gratuit</div>
+                <div class="trial-badge-card">🎁 30 jours gratuit — Sans CB, sans engagement</div>
                 <ul class="features-list">
                     <li>Toutes les fonctionnalités</li>
                     <li><strong>Factures, Devis, Avoirs</strong></li>
@@ -303,13 +303,13 @@
                     <li>Backup & Restauration</li>
                     <li>Support prioritaire 7j/7</li>
                 </ul>
-                <button class="cta-button" id="vip-button" onclick="choosePlan('VIP_MONTHLY')">Choisir VIP</button>
-                <div class="trust-icons">✨ Sans engagement</div>
+                <button class="cta-button" id="vip-button" onclick="choosePlan('VIP_MONTHLY')">Essayer VIP gratuitement</button>
+                <div class="trust-icons">✅ Aucune carte bancaire requise</div>
             </div>
         </div>
 
         <div style="text-align: center; margin-top: 40px; color: #718096; font-size: 14px;">
-            <p>🛡️ 100% Satisfait ou Remboursé | Conforme normes DGFiP 2026</p>
+            <p>🛡️ Essai 30 jours sans carte bancaire | Sans engagement | Conforme normes DGFiP 2026</p>
         </div>
     </div>
 
@@ -321,8 +321,8 @@
                 <div class="faq-answer">Oui, ComptaFlow-by-MeeTempo est sans engagement. Vous pouvez upgrader ou résilier en un clic depuis votre espace client.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Les paiements sont-ils sécurisés ?</div>
-                <div class="faq-answer">Absolument. Nous utilisons Stripe, le leader mondial du paiement en ligne. Vos données bancaires ne transitent jamais par nos serveurs.</div>
+                <div class="faq-question">Dois-je entrer ma carte bancaire pour l'essai ?</div>
+                <div class="faq-answer">Non. L'essai de 30 jours est 100% gratuit et sans carte bancaire. À la fin de l'essai, vous choisissez de continuer ou non. Si vous souscrivez, les paiements sont sécurisés par Stripe, le leader mondial du paiement en ligne.</div>
             </div>
         </div>
     </section>
@@ -337,7 +337,7 @@
     <div class="loading" id="loading">
         <div style="text-align: center;">
             <div class="spinner"></div>
-            <p>Redirection vers Stripe...</p>
+            <p>Activation de votre essai gratuit...</p>
         </div>
     </div>
 
